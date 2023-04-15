@@ -2,7 +2,7 @@
 
 ## Web App
 
-<!-- ![sceeenshot](./Screenshot.png) -->
+![sceeenshot](./Screenshot.png)
 
 ### Notes
 
@@ -13,6 +13,8 @@
 ---
 
 ## Package
+
+[source](./src/lib/)
 
 ### Install
 
@@ -65,7 +67,7 @@ Examples in **svelte**
 <button on:click={collapse}>collapse</button>
 <button on:click={expand}>expand</button>
 
-<label class="field">
+<label>
 	<span>Filter</span>
 	<input type="text" on:input={(ev) => filter(ev.currentTarget.value)} />
 </label>
@@ -79,17 +81,10 @@ Examples in **svelte**
 
 ### Styling
 
-1. Import `styles.css`, or just copy-past its content.
+1. Import `styles.css`, or just copy-past [its content](./src/lib/styles.css).
 2. Add class `jid` to the container element.
 3. Dark mode: add class `dark` to the container or to `<html>`.
 
 ```css
 @import 'json-in-details/styles.css';
-
-/* .jid { */
-/* 	--_fg-string: blue; */
-/* 	--_fg-bool: yellow; */
-/* 	--_fg-number: green; */
-/* 	--_fg-empty: red; */
-/* } */
 ```

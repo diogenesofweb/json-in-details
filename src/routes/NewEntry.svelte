@@ -10,8 +10,8 @@
 		dialog.showModal();
 	}
 	let url = '';
-	// url = 'https://api.oschadbank.ua/pages/currency-rate';
-	// url = 'https://bank.com.ua/api/uk/v1/rest-ui/find-branch-course?date';
+	// url = 'https://api.oschadbank.ua/pages/currency-rate'; // no CORS err
+	// url = 'https://bank.com.ua/api/uk/v1/rest-ui/find-branch-course?date'; // CORS err
 	let is_loading = false;
 
 	async function on_url() {

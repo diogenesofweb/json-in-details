@@ -15,7 +15,13 @@
 			{/if}
 		</nav>
 
-		<a href={PKG['homepage']} target="_blank" class="btn text icon-only" title="code repo">
+		<a
+			href={PKG['homepage']}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="btn text icon-only"
+			title="code repo"
+		>
 			<Icon name="code" />
 		</a>
 
