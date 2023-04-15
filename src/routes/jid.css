@@ -1,0 +1,24 @@
+@import '$lib/styles.css' layer(jid);
+/* @import '$lib/styles.css'; */
+/* if html not escaped */
+.jid .string a {
+	color: var(--fg2);
+	text-underline-offset: 2px;
+}
+.jid .string a:hover {
+	color: var(--fg);
+}
+.jid ::selection {
+	background: var(--bga1);
+}
+
+.jid.preline .string {
+	white-space: pre-line;
+}
+
+/* .jid { */
+/* 	--_fg-string: var(--fg-alpha); */
+/* 	--_fg-bool: var(--fg-gamma); */
+/* 	--_fg-number: var(--fg-beta); */
+/* 	--_fg-empty: var(--fg-danger); */
+/* } */

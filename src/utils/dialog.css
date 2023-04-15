@@ -1,0 +1,23 @@
+dialog {
+	/* background-color: var(--bg); */
+	background: transparent;
+
+	color: var(--fg);
+	border: none;
+	/* border-radius: 0.5rem; */
+	/* padding-inline: var(--rsx); */
+	padding: 0;
+	/* margin-top: 2rem; */
+	/* margin-block: 1rem; */
+
+	/* max-height: calc(100% - 2rem); */
+	/* overflow: hidden; */
+}
+
+dialog::backdrop {
+	background-color: black;
+	opacity: 0.66;
+}
+dialog:focus-visible {
+	outline: 1px solid var(--__fg, var(--fg));
+}

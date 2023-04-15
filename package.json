@@ -1,0 +1,60 @@
+{
+	"name": "json-in-details",
+	"version": "0.0.1",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/diogenesofweb/json-in-details.git"
+	},
+	"description": "Simple JSON viewer",
+	"keywords": [
+		"json",
+		"json-display",
+		"json-view",
+		"json-viewer"
+	],
+	"homepage": "https://github.com/diogenesofweb/json-in-details",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"package": "svelte-kit sync && svelte-package && publint",
+		"prepublishOnly": "npm run package",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
+		"./styles.css": "./dist/styles.css"
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"devDependencies": {
+		"@kazkadien/svelte": "^0.23.1",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-cloudflare": "^2.2.0",
+		"@sveltejs/kit": "^1.15.5",
+		"@sveltejs/package": "^2.0.2",
+		"idb": "^7.1.1",
+		"prettier": "^2.8.7",
+		"prettier-plugin-svelte": "^2.10.0",
+		"publint": "^0.1.11",
+		"svelte": "^3.58.0",
+		"svelte-check": "^3.2.0",
+		"tslib": "^2.5.0",
+		"typescript": "^5.0.4",
+		"typescript-svelte-plugin": "^0.3.22",
+		"vite": "^4.2.1"
+	},
+	"types": "./dist/index.d.ts",
+	"main": "./dist/index.js",
+	"type": "module"
+}

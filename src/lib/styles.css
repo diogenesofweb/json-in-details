@@ -1,0 +1,132 @@
+/* VARS */
+/* :where(.jid) { */
+.jid {
+	--_indent: 2ch;
+
+	--_bg: hsl(0, 0%, 92%);
+	--_bg-level: hsl(0, 0%, 100%, 0.3);
+	--_bg-select: hsl(0, 0%, 88%);
+
+	--_fg: hsl(0, 0%, 16%);
+	--_fg-line: hsl(0, 0%, 50%, 0.3);
+	--_fg-a: hsl(0, 0%, 0%, 0.75);
+
+	/* color: mediumblue; */
+	--_fg-string: mediumblue;
+	--_fg-number: darkgreen;
+	--_fg-bool: maroon;
+	--_fg-empty: purple;
+}
+
+/* DARK MODE */
+/* :where(html.dark .jid, .jid.dark) { */
+html.dark .jid,
+.jid.dark {
+	--_bg: hsl(0, 0%, 13%);
+	--_bg-level: hsl(0, 0%, 5%, 0.1);
+	--_bg-select: hsl(0, 0%, 15%);
+
+	--_fg: hsl(0, 0%, 94%);
+	--_fg-line: hsl(0, 0%, 50%, 0.5);
+	--_fg-a: hsl(0, 0%, 90%, 0.75);
+
+	/* color: olivedrab; */
+	--_fg-string: lightblue;
+	--_fg-number: mediumseagreen;
+	--_fg-bool: lightpink;
+	--_fg-empty: orange;
+}
+/* VARS */
+
+/* CURSOR */
+.jid summary {
+	cursor: pointer;
+}
+.jid .item {
+	cursor: default;
+}
+/* CURSOR */
+
+/* MARKER */
+.jid details > summary {
+	list-style: none;
+	/* position: relative; */
+	isolation: isolate;
+}
+.jid details > summary::marker {
+	display: none;
+}
+.jid details > summary::before {
+	content: '+';
+	position: absolute;
+	transform: translateX(-0.75em);
+
+	color: var(--_fg-a);
+}
+.jid details[open] > summary::before {
+	content: '-';
+}
+/* MARKER */
+
+/* STATE */
+.jid details > summary > .on-closed {
+	color: var(--_fg-a);
+	font-style: italic;
+}
+.jid details[open] > summary > .on-closed {
+	display: none;
+}
+.jid details:not([open]) > summary > .on-open {
+	display: none;
+}
+/* STATE */
+
+.jid {
+	line-height: 1.6;
+	padding: 1em;
+	background: var(--_bg);
+	color: var(--_fg);
+	/* color: var(--_fg-a); */
+}
+
+.jid details {
+	padding-left: 0;
+}
+
+.jid details > .block {
+	padding-left: var(--_indent);
+	border-left: 1px dotted;
+	border-color: var(--_fg-line);
+}
+.jid details > .block:where(:hover, :focus-within) {
+	border-color: var(--_fg-a);
+	background: var(--_bg-level);
+}
+
+.jid :where(summary, .item):hover {
+	background: var(--_bg-select);
+	/* background: red; */
+}
+
+.jid :where(summary, .item):focus {
+	outline: 1px dashed var(--_fg-a);
+}
+
+.jid .obj-key {
+	color: var(--_fg);
+}
+
+.jid .string {
+	word-break: break-all;
+	color: var(--_fg-string);
+}
+.jid .boolean {
+	color: var(--_fg-bool);
+}
+.jid .number {
+	color: var(--_fg-number);
+}
+/* null, {}, [] */
+.jid :where(.empty, .null) {
+	color: var(--_fg-empty);
+}
