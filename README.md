@@ -2,6 +2,8 @@
 
 ## Web App
 
+[live](https://json-in-details.pages.dev)
+
 ![sceeenshot](./Screenshot.png)
 
 ### Notes
@@ -14,7 +16,7 @@
 
 ## Package
 
-[source](./src/lib/)
+[source](./src/lib/) [npm](https://www.npmjs.com/package/json-in-details)
 
 ### Install
 
