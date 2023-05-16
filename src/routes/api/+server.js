@@ -14,9 +14,15 @@ export async function GET(x) {
 		return new Response(JSON.stringify({ message: 'Invalid URL' }), { status: 400 });
 	}
 
-	const p = await x.fetch(q);
-	const data = await p.json();
-	const res = JSON.stringify(data);
-
-	return new Response(res);
+	let status = 400;
+	try {
+		// throw new Error('Oops !!!');
+		const p = await x.fetch(q);
+		status = p.status;
+		const data = await p.json();
+		const res = JSON.stringify(data);
+		return new Response(res);
+	} catch (error) {
+		return new Response(JSON.stringify(error?.message || error), { status });
+	}
 }

@@ -1,5 +1,5 @@
 <script>
-	import { notifyError } from '$utils/Snacks.svelte';
+	import { addSnack, notifyError } from '$utils/Snacks.svelte';
 	import { my_json } from '$utils/stores';
 	import { Field } from '@kazkadien/svelte';
 	import { idb } from './db';
@@ -39,11 +39,17 @@
 				throw new Error(`Failed to Fetch`);
 			}
 
-			if (!res.ok) {
-				throw new Error(`HTTP Response Code:: [${res.status}]`);
+			const res_ok = res.ok;
+			if (!res_ok) {
+				const msg = `HTTP Response Code:: [${res.status}]`;
+				addSnack(msg, 'danger');
 			}
 
-			const data = await res.json();
+			let data = await res.json();
+
+			if (!res_ok) {
+				data = { message: data };
+			}
 
 			console.log(data);
 
