@@ -18,11 +18,18 @@ export async function GET(x) {
 	try {
 		// throw new Error('Oops !!!');
 		const p = await x.fetch(q);
-		status = p.status;
+
+		if (!p.ok) {
+			status = p.status;
+			const t = await p.text();
+			return new Response(JSON.stringify(t || p.statusText), { status });
+			// throw new Error(p.statusText);
+		}
+
 		const data = await p.json();
 		const res = JSON.stringify(data);
 		return new Response(res);
 	} catch (error) {
-		return new Response(JSON.stringify(error?.message || error), { status });
+		return new Response(JSON.stringify(error?.message || 'Oops'), { status });
 	}
 }
