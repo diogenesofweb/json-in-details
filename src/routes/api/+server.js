@@ -21,15 +21,15 @@ export async function GET(x) {
 
 		if (!p.ok) {
 			status = p.status;
-			const t = await p.text();
-			return new Response(JSON.stringify(t || p.statusText), { status });
-			// throw new Error(p.statusText);
+			// const t = await p.text();
+			// return new Response(JSON.stringify(t || p.statusText), { status });
+			throw new Error(p.statusText);
 		}
 
 		const data = await p.json();
 		const res = JSON.stringify(data);
 		return new Response(res);
 	} catch (error) {
-		return new Response(JSON.stringify(error?.message || 'Oops'), { status });
+		return new Response(JSON.stringify(error?.message || 'Oops :('), { status });
 	}
 }
