@@ -40,9 +40,6 @@ devDependencies:
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
-  typescript-svelte-plugin:
-    specifier: ^0.3.25
-    version: 0.3.25(svelte@3.59.1)(typescript@5.0.4)
   vite:
     specifier: ^4.3.6
     version: 4.3.6
@@ -1096,16 +1093,6 @@ packages:
 
   /tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
-    dev: true
-
-  /typescript-svelte-plugin@0.3.25(svelte@3.59.1)(typescript@5.0.4):
-    resolution: {integrity: sha512-fYvj59oJY3RGYYwj1DqMJWi9n+njuxrM10kEIy8NsU1AG6Z9FpYa5P8GBUoxvsexhcrKHFSb4XaXjH/RMw3I6A==}
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
-      svelte2tsx: 0.6.14(svelte@3.59.1)(typescript@5.0.4)
-    transitivePeerDependencies:
-      - svelte
-      - typescript
     dev: true
 
   /typescript@5.0.4:

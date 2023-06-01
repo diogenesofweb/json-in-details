@@ -82,6 +82,7 @@ html.dark .jid,
 /* STATE */
 
 .jid {
+	position: relative;
 	line-height: 1.6;
 	padding: 1em;
 	background: var(--_bg);

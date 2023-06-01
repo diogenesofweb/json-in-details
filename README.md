@@ -21,9 +21,9 @@
 ### Install
 
 ```bash
-pnpm add json-in-details
-# or
 npm install json-in-details
+# or
+pnpm add json-in-details
 ```
 
 ### Usage
@@ -52,6 +52,7 @@ Examples in **svelte**
 ```svelte
 <script>
 	import 'json-in-details/styles.css';
+
 	import init from 'json-in-details';
 
 	let path = '?';
@@ -88,5 +89,8 @@ Examples in **svelte**
 3. Dark mode: add class `dark` to the container or to `<html>`.
 
 ```css
-@import 'json-in-details/styles.css';
+@import 'json-in-details/styles.css' layer(jid);
+
+/* .jid {} */
+/* :is(html.dark .jid, .jid.dark) {} */
 ```
