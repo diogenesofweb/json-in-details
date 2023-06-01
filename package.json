@@ -22,7 +22,6 @@
 		"prepublishOnly": "npm run package",
 		"prepub": "npm version minor && npm run package",
 		"pub": "npm publish && git push && git push --tags",
-		"push": "git push && git push --tags",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check .",
