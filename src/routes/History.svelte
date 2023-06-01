@@ -50,20 +50,25 @@
 			<ul>
 				{#each arr as el}
 					<li>
-						<div>
-							<button class="btn text alpha" on:click={() => on_select(el.date)}>
-								{el.name}
-							</button>
-							<Btn variant="text" accent="danger" iconOnly on:click={() => on_del(el.date)}>
-								<Icon name="delete" />
-							</Btn>
+						<Btn variant="text" accent="danger" colored iconOnly on:click={() => on_del(el.date)}>
+							<Icon name="delete" />
+						</Btn>
+						<div class="time f-mono">
+							<!-- <time>{el.date.toLocaleDateString('fr-CA')}</time> -->
+							<time>
+								{el.date.toLocaleTimeString('en', {
+									hour: 'numeric',
+									minute: 'numeric',
+									hourCycle: 'h24',
+									month: '2-digit',
+									day: '2-digit'
+								})}
+							</time>
 						</div>
-						<!-- <div class="time f-mono"> -->
-						<!--   <time>{el.date.toLocaleDateString('fr-CA')}</time> -->
-						<!--   <time> -->
-						<!--     {el.date.toLocaleTimeString('fr', { hour: 'numeric', minute: 'numeric' })} -->
-						<!--   </time> -->
-						<!-- </div> -->
+
+						<button class="btn text alpha" on:click={() => on_select(el.date)}>
+							{el.name}
+						</button>
 					</li>
 				{:else}
 					<p>no entries yet</p>
@@ -84,14 +89,12 @@
 
 	li {
 		padding-block: 6px;
+		display: grid;
+		grid-template-columns: auto auto 1fr;
+		align-items: center;
 	}
 
-	li > :first-child {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		gap: 6px;
-	}
-	li > :first-child > button.btn {
+	button.btn {
 		line-height: 1.4;
 		justify-content: start;
 		text-align: left;
@@ -100,10 +103,12 @@
 	}
 
 	.time {
-		font-size: 14px;
+		/* font-size: 14px; */
 		line-height: 1;
 		text-align: right;
 		color: var(--fg2);
+		color: var(--fg-beta);
+		opacity: 0.75;
 	}
 
 	li:not(:last-child) {

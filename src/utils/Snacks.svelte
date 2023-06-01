@@ -7,7 +7,7 @@
 
 	/**
 	 * @param {string} msg
-	 * @param {import('@kazkadien/svelte/types').Accent} accent
+	 * @param {import('@kazkadien/svelte/dist/types').Accent} accent
 	 */
 	export function addSnack(msg, accent = 'alpha') {
 		snacks.update((v) => [...v, { id: performance.now(), body: msg, accent }]);

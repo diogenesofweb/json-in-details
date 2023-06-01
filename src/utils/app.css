@@ -27,10 +27,6 @@ a.btn {
 	text-underline-offset: 3px;
 }
 
-dialog {
-	margin-top: 10vh;
-}
-
 :root {
 	--border: 1px solid var(--bga1);
 	--br: 0.5rem;

@@ -89,8 +89,13 @@
 			// console.log(ev);
 			// console.log(ev.target);
 			try {
-				const str = ev.target.result;
-				const json = JSON.parse(str);
+				const str = ev.target?.result;
+
+				if (!str) {
+					throw new Error('ops');
+				}
+
+				const json = JSON.parse(str.toString());
 				// console.log('string', str);
 				// console.log('json', json);
 				my_json.set(json);
