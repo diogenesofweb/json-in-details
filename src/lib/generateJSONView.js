@@ -27,7 +27,7 @@ function t(path) {
 // class prefix
 const cp = 'jid--';
 // CSS classes
-const cc = {
+export const cc = {
 	// string: 'string',
 	// number: 'number',
 	// boolean: 'boolean',

@@ -1,3 +1,6 @@
+import { cc } from './generateJSONView.js';
+// console.log(cc.block);
+
 // FOLD
 /**
  * @param {boolean} open
@@ -49,7 +52,7 @@ export function filter_by(selector, str) {
 		return;
 	}
 
-	const el = document.querySelector(`${selector} > details > .block`);
+	const el = document.querySelector(`${selector} > details > .${cc.block}`);
 	if (!el) return;
 
 	const regex = new RegExp(escapeRegExp(str), 'i');
@@ -79,7 +82,7 @@ function filter_block(elem, regex) {
 		}
 
 		if (child.tagName === 'DETAILS') {
-			const block_elem = child.querySelector('.block');
+			const block_elem = child.querySelector(`.${cc.block}`);
 			if (block_elem) filter_block(block_elem, regex);
 		}
 	}
@@ -91,7 +94,7 @@ function filter_block(elem, regex) {
 function clear_filter(selector) {
 	document
 		.querySelector(selector)
-		?.querySelectorAll('.block > :where(div, details)')
+		?.querySelectorAll(`.${cc.block} > :where(div, details)`)
 		.forEach((el) => {
 			// console.log(el.tagName);
 			// console.log(el.style.display);
