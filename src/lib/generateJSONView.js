@@ -24,18 +24,19 @@ function escape_HTML(/** @type {string} */ unsafe) {
 function t(path) {
 	return ` title="${path}" `;
 }
-
+// class prefix
+const cp = 'jid--';
 // CSS classes
 const cc = {
 	// string: 'string',
 	// number: 'number',
 	// boolean: 'boolean',
-	null: 'null',
-	empty: 'empty',
+	null: `${cp}null`,
+	empty: `${cp}empty`,
 
-	ok: 'obj-key',
-	block: 'block',
-	item: 'item'
+	ok: `${cp}obj-key`,
+	block: `${cp}block`,
+	item: `${cp}item`
 };
 
 /**
@@ -52,7 +53,7 @@ function make_obj_entry(key, val, class_type, ends_with = '', path) {
 
 	const x = `tabindex="0" class="${cc.item}" ${t(path)}`;
 
-	return `<div ${x}><span class="${cc.ok}">"${key}":</span> <span class="${class_type}">${val}</span>${ends_with}</div>`;
+	return `<div ${x}><span class="${cc.ok}">"${key}":</span> <span class="${cp}${class_type}">${val}</span>${ends_with}</div>`;
 }
 /**
  * @param {any} val
@@ -61,7 +62,7 @@ function make_obj_entry(key, val, class_type, ends_with = '', path) {
  * @param {string} path
  */
 function make_array_entry(val, class_type, ends_with, path) {
-	const x = `tabindex="0" class="${cc.item} ${class_type}" ${t(path)}`;
+	const x = `tabindex="0" class="${cc.item} ${cp}${class_type}" ${t(path)}`;
 	return `<div ${x}><span>${val}</span>${ends_with}</div>`;
 }
 
@@ -181,7 +182,7 @@ function handle_object(key, value, is_last, prev_path) {
 	const withKey = key ? `<span class="${cc.ok}">"${key}":</span>` : '';
 
 	const result = `
-<details open>
+<details class="${cp}dtl" open>
   <summary ${t(path)}>
     ${withKey}
     <span class="on-open">${brakets.start}</span>
