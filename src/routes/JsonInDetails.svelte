@@ -12,7 +12,11 @@
 
 	let preline = false;
 
-	$: html = generate_HTML(json, { escape_HTML: true, show_newline_chars: false });
+	$: html = generate_HTML(json, {
+		// links_as_tags: true
+		escape_HTML: true,
+		show_newline_chars: false
+	});
 </script>
 
 <div

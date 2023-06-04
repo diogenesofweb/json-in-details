@@ -39,6 +39,15 @@ export const cc = {
 	item: `${cp}item`
 };
 
+/** @param {string} val */
+function digest_str(val) {
+	if (do_escape_HTML) {
+		val = escape_HTML(val);
+	}
+
+	return val;
+}
+
 /**
  * @param {string} key
  * @param {string | number | boolean | null} val
@@ -47,8 +56,8 @@ export const cc = {
  */
 function make_obj_entry(key, val, class_type, ends_with = '', path) {
 	// console.log({ doEscapeHTML });
-	if (typeof val === 'string' && do_escape_HTML) {
-		val = escape_HTML(val);
+	if (typeof val === 'string') {
+		val = digest_str(val);
 	}
 
 	const x = `tabindex="0" class="${cc.item}" ${t(path)}`;
@@ -62,7 +71,12 @@ function make_obj_entry(key, val, class_type, ends_with = '', path) {
  * @param {string} path
  */
 function make_array_entry(val, class_type, ends_with, path) {
+	if (typeof val === 'string') {
+		val = digest_str(val);
+	}
+
 	const x = `tabindex="0" class="${cc.item} ${cp}${class_type}" ${t(path)}`;
+
 	return `<div ${x}><span>${val}</span>${ends_with}</div>`;
 }
 
