@@ -28,11 +28,11 @@ function t(path) {
 const cp = 'jid--';
 // CSS classes
 export const cc = {
-	// string: 'string',
-	// number: 'number',
-	// boolean: 'boolean',
-	null: `${cp}null`,
-	empty: `${cp}empty`,
+	// null: `${cp}null`,
+	// empty: `${cp}empty`,
+
+	null: `null`,
+	empty: `empty`,
 
 	ok: `${cp}obj-key`,
 	block: `${cp}block`,
