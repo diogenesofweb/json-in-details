@@ -115,6 +115,7 @@ html.dark .jid,
 	color: var(--_fg);
 }
 
+.jid--link,
 .jid--string {
 	word-break: break-all;
 	color: var(--_fg-string);
@@ -126,6 +127,7 @@ html.dark .jid,
 	color: var(--_fg-number);
 }
 /* null, {}, [] */
+.jid--link:where(:hover, :focus-visible),
 .jid--empty,
 .jid--null {
 	color: var(--_fg-empty);

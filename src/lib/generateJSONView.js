@@ -26,66 +26,126 @@ function t(path) {
 }
 // class prefix
 const cp = 'jid--';
-// CSS classes
-export const cc = {
+// html classes
+export const hc = {
 	// null: `${cp}null`,
 	// empty: `${cp}empty`,
 
 	null: `null`,
 	empty: `empty`,
 
+	link: `${cp}link`,
 	ok: `${cp}obj-key`,
 	block: `${cp}block`,
 	item: `${cp}item`
 };
 
-/** @param {string} val */
-function digest_str(val) {
-	if (do_escape_HTML) {
-		val = escape_HTML(val);
+/** @param {string | URL} str */
+function is_valid_URL(str) {
+	try {
+		const _ = new URL(str);
+		return true;
+	} catch (e) {
+		// console.warn(e);
+		return false;
+	}
+}
+
+/**
+ * @param {string} val
+ * @param {LinkOpts} opt
+ */
+function is_valid_link(val, opt) {
+	switch (opt) {
+		case 1:
+			if (val.startsWith('/') || val.startsWith('http://') || val.startsWith('https://')) {
+				return true;
+			}
+			break;
+
+		case 2:
+			if (val.startsWith('http://') || val.startsWith('https://')) {
+				return true;
+			}
+			break;
+
+		case 3:
+			if (is_valid_URL(val)) {
+				return true;
+			}
+			break;
+
+		default:
+			break;
 	}
 
-	return val;
+	return false;
+}
+
+const q = '&quot;';
+// primitive types + [] + {}
+/** @param {any} val */
+function digest_val(val) {
+	const typeof_ = typeof val;
+
+	if (typeof_ === 'string') {
+		if (do_escape_HTML) {
+			val = escape_HTML(val);
+		}
+
+		if (do_check_links && is_valid_link(val, do_check_links)) {
+			return `<a class="${hc.link}" href=${val.replaceAll(q, '"')}>${val}</a>`;
+		}
+
+		if (do_stringify) {
+			val = JSON.stringify(val);
+		} else {
+			val = `"${val}"`;
+		}
+
+		return `<span class="${cp}${typeof_}">${val}</span>`;
+	}
+
+	let class_;
+
+	// console.log(typeof val);
+	if (typeof_ === 'object') {
+		if (val === null) {
+			class_ = hc.null;
+		} else {
+			class_ = hc.empty;
+
+			if (val instanceof Array) {
+				val = '[]';
+			} else {
+				val = '{}';
+			}
+		}
+	} else {
+		class_ = typeof_;
+	}
+
+	return `<span class="${cp}${class_}">${val}</span>`;
 }
 
 /**
  * @param {string} key
- * @param {string | number | boolean | null} val
- * @param {string} class_type
- * @param {string} path
- */
-function make_obj_entry(key, val, class_type, ends_with = '', path) {
-	// console.log({ doEscapeHTML });
-	if (typeof val === 'string') {
-		val = digest_str(val);
-	}
-
-	const x = `tabindex="0" class="${cc.item}" ${t(path)}`;
-
-	return `<div ${x}><span class="${cc.ok}">"${key}":</span> <span class="${cp}${class_type}">${val}</span>${ends_with}</div>`;
-}
-/**
  * @param {any} val
- * @param {string} ends_with
- * @param {string} class_type
  * @param {string} path
  */
-function make_array_entry(val, class_type, ends_with, path) {
-	if (typeof val === 'string') {
-		val = digest_str(val);
+function make_entry(key, val, ends_with = '', path) {
+	// console.log({ doEscapeHTML });
+	const el = digest_val(val);
+
+	const attrs = `tabindex="0" class="${hc.item}" ${t(path)}`;
+
+	if (key) {
+		// is obj entry
+		return `<div ${attrs}><span class="${hc.ok}">"${key}":</span> ${el}${ends_with}</div>`;
+	} else {
+		// is arr entry
+		return `<div ${attrs}>${el}${ends_with}</div>`;
 	}
-
-	const x = `tabindex="0" class="${cc.item} ${cp}${class_type}" ${t(path)}`;
-
-	return `<div ${x}><span>${val}</span>${ends_with}</div>`;
-}
-
-function fm(/** @type {any} */ v) {
-	if (do_stringify) {
-		return typeof v === 'string' ? JSON.stringify(v) : v;
-	}
-
-	return typeof v === 'string' ? `"${v}"` : v;
 }
 
 /**
@@ -106,17 +166,16 @@ function make_from_object(entries, prev_path) {
 		const ends_with = is_last ? '' : ',';
 		// console.log([k, v]);
 		if (typeof v == 'object' && v !== null) {
-			html += handle_object(k, v, is_last, path);
+			html += handle_objectlike(k, v, is_last, path);
 		} else {
 			// console.log({ v });
-			// const my_class = v === null ? cc.empty : typeof v;
-			const my_class = v === null ? cc.null : typeof v;
-			html += make_obj_entry(k, fm(v), my_class, ends_with, path);
+			html += make_entry(k, v, ends_with, path);
 		}
 	}
 
 	return html;
 }
+
 /**
  * @param {any[]} arr
  * @param {string} prev_path
@@ -132,36 +191,23 @@ function make_from_array(arr, prev_path) {
 		const ends_with = last ? '' : ',';
 
 		if (typeof v == 'object' && v !== null) {
-			html += handle_object('', v, last, path);
+			html += handle_objectlike('', v, last, path);
 		} else {
-			html += make_array_entry(fm(v), typeof v, ends_with, path);
+			html += make_entry('', v, ends_with, path);
 		}
 	}
 
 	return html;
 }
 
-/**
- * @param {string} key
- * @param {string | number | boolean} val
- * @param {string} ends_with
- * @param {string} prev_path
- */
-function make_empty_entry(key, val, ends_with, prev_path) {
-	if (key) {
-		return make_obj_entry(key, val, cc.empty, ends_with, prev_path);
-	} else {
-		return make_array_entry(val, cc.empty, ends_with, prev_path);
-	}
-}
-
+// objectlike = obj || arr
 /**
  * @param {string} key
  * @param {{[s: string]: any;} | ArrayLike<any>} value
  * @param {boolean} is_last
  * @param {string} prev_path
  */
-function handle_object(key, value, is_last, prev_path) {
+function handle_objectlike(key, value, is_last, prev_path) {
 	const ends_with = is_last ? '' : ',';
 	let brakets;
 	// let brakets = { ...braketsArr };
@@ -172,7 +218,7 @@ function handle_object(key, value, is_last, prev_path) {
 		brakets = { ...brakets_4_array };
 
 		if (value.length === 0) {
-			return make_empty_entry(key, '[]', ends_with, path);
+			return make_entry(key, value, ends_with, path);
 		}
 
 		elems += make_from_array(value, path);
@@ -185,7 +231,7 @@ function handle_object(key, value, is_last, prev_path) {
 		const entries = Object.entries(value);
 
 		if (entries.length === 0) {
-			return make_empty_entry(key, '{}', ends_with, path);
+			return make_entry(key, value, ends_with, path);
 		}
 
 		elems += make_from_object(entries, path);
@@ -193,7 +239,7 @@ function handle_object(key, value, is_last, prev_path) {
 		brakets.closed = `{ ... ${entries.length} }${ends_with}`;
 	}
 
-	const withKey = key ? `<span class="${cc.ok}">"${key}":</span>` : '';
+	const withKey = key ? `<span class="${hc.ok}">"${key}":</span>` : '';
 
 	const result = `
 <details class="${cp}dtl" open>
@@ -202,7 +248,7 @@ function handle_object(key, value, is_last, prev_path) {
     <span class="on-open">${brakets.start}</span>
     <span class="on-closed">${brakets.closed}</span>
   </summary>
-  <div class="${cc.block}">${elems}</div>
+  <div class="${hc.block}">${elems}</div>
   <div>${brakets.end}${ends_with}</div>
 </details>
 `;
@@ -212,9 +258,17 @@ function handle_object(key, value, is_last, prev_path) {
 
 let do_stringify = false;
 let do_escape_HTML = true;
+/** @typedef { 0 | 1 | 2 | 3 } LinkOpts */
+/** @type {LinkOpts} */
+let do_check_links = 0;
 
-/** @param {Object} json */
-export default function generate_HTML(json, { show_newline_chars = false, escape_HTML = true }) {
+/**
+ * @param {{[s: string]: any;} | ArrayLike<any> | null} json
+ * @param {{ show_newline_chars?: false | undefined; escape_HTML?: true | undefined; clickable_link?: LinkOpts | undefined; }} opts
+ */
+export default function generate_HTML(json, opts) {
+	const { show_newline_chars = false, escape_HTML = true, clickable_link = 0 } = opts;
+
 	if (json === null) {
 		return 'null';
 	}
@@ -226,6 +280,7 @@ export default function generate_HTML(json, { show_newline_chars = false, escape
 	// display \r\n
 	do_stringify = show_newline_chars;
 	do_escape_HTML = escape_HTML;
+	do_check_links = clickable_link;
 
-	return handle_object('', json, true, '$');
+	return handle_objectlike('', json, true, '$');
 }

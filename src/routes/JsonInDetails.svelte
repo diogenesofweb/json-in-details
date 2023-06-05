@@ -13,7 +13,7 @@
 	let preline = false;
 
 	$: html = generate_HTML(json, {
-		// links_as_tags: true
+		clickable_link: 0,
 		escape_HTML: true,
 		show_newline_chars: false
 	});
