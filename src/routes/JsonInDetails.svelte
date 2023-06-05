@@ -6,6 +6,7 @@
 
 	import { createEventDispatcher } from 'svelte';
 	import { storage } from '$utils/local_storage';
+	import { handle_key_navigation } from '$lib/navigate';
 	const dispatch = createEventDispatcher();
 
 	/** @type {any} */
@@ -19,11 +20,15 @@
 		escape_HTML: storage.escape_HTML.value,
 		show_newline_chars: storage.show_newline_char.value
 	});
+	/** @type {HTMLDivElement} */
+	let div;
 </script>
 
 <div
 	class="jid dark2"
+	bind:this={div}
 	class:preline
+	on:keydown={handle_key_navigation}
 	on:focusin={(ev) => {
 		const path = get_path(ev);
 		dispatch('path_change', path);

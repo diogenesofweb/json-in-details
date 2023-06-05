@@ -12,6 +12,14 @@
 - **Collapse/Expand** - togging `<details />` _open_ attribute.
 - **Filter** - toggling `display: none;`.
 
+### Plus
+
+- Foldable nodes
+- Filterable nodes
+- Display path on focus/hover
+- Keyboard navigation (move: hjkl, collapse/expand inner nodes: c/e)
+- Light/dark theme
+
 ---
 
 ## Package
@@ -35,8 +43,7 @@ Examples in **svelte**
 ```svelte
 <script>
 	// container element: add class `jid`
-	import 'json-in-details/styles.css';
-
+	// import 'json-in-details/styles.css';
 	import { generate_HTML } from 'json-in-details';
 
 	const json_object = JSON.parse('{"hello":"world"}');
@@ -51,8 +58,7 @@ Examples in **svelte**
 
 ```svelte
 <script>
-	import 'json-in-details/styles.css';
-
+	// import 'json-in-details/styles.css';
 	import init from 'json-in-details';
 
 	let path = '?';
@@ -60,10 +66,20 @@ Examples in **svelte**
 	const container_id = 'my-jid';
 	const container_selector = `#${container_id}`;
 
-	const { collapse, expand, filter, get_path, generate_HTML } = init(container_selector);
+	const { collapse, expand, filter, get_path, generate_HTML, handle_key_navigation } =
+		init(container_selector);
 
 	const json_object = JSON.parse('{"hello":"world","foo":{"bar":123}}');
-	const html = generate_HTML(json_object, { escape_HTML: true, show_newline_chars: false });
+	const html = generate_HTML(json_object, {
+		escape_HTML: true,
+		show_newline_chars: false,
+
+		clickable_link: 0 // default
+		// 0 = no
+		// 1 = str starts with "/" or "http(s)://"
+		// 2 = srt starts with "http(s)://"
+		// 3 = str is a valid URL
+	});
 	// console.log(html)
 </script>
 
@@ -77,7 +93,12 @@ Examples in **svelte**
 
 <p>Path: {path}</p>
 
-<div id={container_id} class="jid" on:focusin={(ev) => (path = get_path(ev))}>
+<div
+	id={container_id}
+	class="jid"
+	on:keydown={handle_key_navigation}
+	on:focusin={(ev) => (path = get_path(ev))}
+>
 	{@html html}
 </div>
 ```

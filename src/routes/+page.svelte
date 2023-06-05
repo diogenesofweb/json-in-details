@@ -29,11 +29,17 @@
 	</section>
 
 	<section class="tips">
-		<p>
-			<b>Search: </b>
+		<b>Search: </b>
+		<div>
 			press <i>COLLAPSE </i>icon {'->'} press <i>Ctrl+F</i>
 			{'->'} type search <i>text</i>
-		</p>
+		</div>
+	</section>
+
+	<section class="tips">
+		<b>Keyboard: </b>
+		<div>h/j/k/l - move left/down/up/right</div>
+		<div>c/e - collapse/expande inner nodes</div>
 	</section>
 
 	<a id="to-top" href="#start" class="btn icon-only outlined">
@@ -66,9 +72,10 @@
 	}
 
 	.tips {
+		line-height: 1.6;
 		margin-top: 2em;
 		padding-inline: var(--sx-m);
-		padding-block: 2px;
+		padding-block: 1em;
 		background: var(--bg);
 	}
 </style>

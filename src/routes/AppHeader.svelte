@@ -12,7 +12,7 @@
 			<AppHomeLink />
 
 			{#if dev}
-				<a href="/draft" class="btn text"><b>Draft</b></a>
+				<a href="/_draft" class="btn text"><b>Draft</b></a>
 			{/if}
 		</nav>
 
