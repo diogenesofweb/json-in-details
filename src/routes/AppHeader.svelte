@@ -3,6 +3,7 @@
 	import { ThemeSelect } from '@kazkadien/svelte';
 	import { dev } from '$app/environment';
 	import AppHomeLink from './AppHomeLink.svelte';
+	import AppSettings from './AppSettings.svelte';
 </script>
 
 <header class="alpha">
@@ -22,7 +23,7 @@
 			class="btn text icon-only"
 			title="code repo"
 		>
-			<Icon name="code" />
+			<Icon name="github" />
 		</a>
 
 		<Dropdown variant="text" iconOnly align="right" overshadow>
@@ -30,6 +31,8 @@
 
 			<ThemeSelect />
 		</Dropdown>
+
+		<AppSettings />
 	</div>
 </header>
 

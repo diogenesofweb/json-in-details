@@ -264,7 +264,7 @@ let do_check_links = 0;
 
 /**
  * @param {{[s: string]: any;} | ArrayLike<any> | null} json
- * @param {{ show_newline_chars?: false | undefined; escape_HTML?: true | undefined; clickable_link?: LinkOpts | undefined; }} opts
+ * @param {{ show_newline_chars?: boolean | undefined; escape_HTML?: boolean | undefined; clickable_link?: LinkOpts | undefined; }} opts
  */
 export default function generate_HTML(json, opts) {
 	const { show_newline_chars = false, escape_HTML = true, clickable_link = 0 } = opts;

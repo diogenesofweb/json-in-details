@@ -18,8 +18,8 @@
 	}
 </script>
 
-<div class="path">
-	<div class="path-panel f-system alpha">
+<div class="path beta">
+	<div class="path-panel f-system">
 		<div class="val" title="Path">{title}</div>
 		<Btn iconOnly variant="text" colored on:click={handle_copy} title="Copy path">
 			<Icon name="content_copy" />
@@ -49,5 +49,6 @@
 	}
 	.val {
 		padding-block: var(--sx-s);
+		color: var(--__fg);
 	}
 </style>

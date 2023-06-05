@@ -27,7 +27,7 @@
 	</div>
 
 	<div class="btns">
-		<Btn iconOnly colored accent="beta" variant="text" title="Collapse All" on:click={collapse}>
+		<Btn iconOnly colored accent="alpha" variant="text" title="Collapse All" on:click={collapse}>
 			<Icon name="unfold_less_double" />
 		</Btn>
 

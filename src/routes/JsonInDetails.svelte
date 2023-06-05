@@ -5,6 +5,7 @@
 	const { generate_HTML } = init();
 
 	import { createEventDispatcher } from 'svelte';
+	import { storage } from '$utils/local_storage';
 	const dispatch = createEventDispatcher();
 
 	/** @type {any} */
@@ -13,9 +14,10 @@
 	let preline = false;
 
 	$: html = generate_HTML(json, {
-		clickable_link: 0,
-		escape_HTML: true,
-		show_newline_chars: false
+		// @ts-ignore
+		clickable_link: storage.clickable_links.value,
+		escape_HTML: storage.escape_HTML.value,
+		show_newline_chars: storage.show_newline_char.value
 	});
 </script>
 
