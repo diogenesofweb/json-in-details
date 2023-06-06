@@ -19,13 +19,10 @@
 		escape_HTML: storage.escape_HTML.value,
 		show_newline_chars: storage.show_newline_char.value
 	});
-	/** @type {HTMLDivElement} */
-	let div;
 </script>
 
 <div
 	class="jid dark2"
-	bind:this={div}
 	class:preline
 	on:keydown={handle_keymaps}
 	on:focusin={(ev) => {

@@ -1,5 +1,5 @@
 <script>
-	import { Icon } from '@kazkadien/svelte';
+	import { Dtl, Icon } from '@kazkadien/svelte';
 	import JsonInDetails from './JsonInDetails.svelte';
 	import FilterAndFold from './FilterAndFold.svelte';
 	import ThePath from './ThePath.svelte';
@@ -28,18 +28,23 @@
 		<JsonInDetails json={$my_json} on:path_change={(ev) => (path = ev.detail)} />
 	</section>
 
-	<section class="tips">
-		<b>Search: </b>
-		<div>
-			press <i>COLLAPSE </i>icon {'->'} press <i>Ctrl+F</i>
-			{'->'} type search <i>text</i>
-		</div>
-	</section>
+	<section class="tips f-mono">
+		<Dtl heading="Search" open>
+			<div>
+				press <i>COLLAPSE </i>icon {'->'} press <i>Ctrl+F</i>
+				{'->'} type search <i>text</i>
+			</div>
+		</Dtl>
 
-	<section class="tips">
-		<b>Keyboard: </b>
-		<div>h/j/k/l - move left/down/up/right</div>
-		<div>c/e - collapse/expande inner nodes</div>
+		<Dtl heading="Keymaps">
+			<p>h - move focus left (parent node)</p>
+			<p>j - move focus down (next sibling)</p>
+			<p>k - move focus up (previous sibling)</p>
+			<p>l - move focus right (child node)</p>
+
+			<p>c - collapse all child nodes</p>
+			<p>e - expand all child nodes</p>
+		</Dtl>
 	</section>
 
 	<a id="to-top" href="#start" class="btn icon-only outlined">
@@ -72,10 +77,8 @@
 	}
 
 	.tips {
-		line-height: 1.6;
-		margin-top: 2em;
-		padding-inline: var(--sx-m);
-		padding-block: 1em;
-		background: var(--bg);
+		margin-block: 3em;
+		display: grid;
+		gap: 1em;
 	}
 </style>
