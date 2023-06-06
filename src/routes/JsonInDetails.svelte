@@ -1,12 +1,10 @@
 <script>
 	import './jid.css';
 	import { get_path } from '$lib/stuff';
-	import init from '$lib';
+	import { generate_HTML } from '$lib';
 	import { createEventDispatcher } from 'svelte';
 	import { storage } from '$utils/local_storage';
-	import { handle_key_navigation } from '$lib/keymaps';
-
-	const { generate_HTML } = init();
+	import { handle_keymaps } from '$lib/keymaps';
 
 	const dispatch = createEventDispatcher();
 
@@ -29,7 +27,7 @@
 	class="jid dark2"
 	bind:this={div}
 	class:preline
-	on:keydown={handle_key_navigation}
+	on:keydown={handle_keymaps}
 	on:focusin={(ev) => {
 		const path = get_path(ev);
 		dispatch('path_change', path);
