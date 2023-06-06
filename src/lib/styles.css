@@ -16,6 +16,8 @@
 	--_fg-number: darkgreen;
 	--_fg-bool: maroon;
 	--_fg-empty: purple;
+
+	--_fg-string: hsl(211, 99%, 36%);
 }
 
 /* DARK MODE */
@@ -32,7 +34,7 @@ html.dark .jid,
 
 	/* color: olivedrab; */
 	--_fg-string: lightblue;
-	--_fg-number: mediumseagreen;
+	--_fg-number: hsl(61, 66%, 44%);
 	--_fg-bool: lightpink;
 	--_fg-empty: orange;
 }
@@ -93,7 +95,7 @@ html.dark .jid,
 
 .jid--block {
 	padding-left: var(--_indent);
-	border-left: 1px dotted;
+	border-left: 1px dashed;
 	border-color: var(--_fg-line);
 }
 
@@ -108,7 +110,7 @@ html.dark .jid,
 }
 
 :where(.jid--dtl > summary, .jid--item):focus {
-	outline: 1px dashed var(--_fg-a);
+	outline: 1px dotted var(--_fg-a);
 }
 
 .jid--obj-key {

@@ -47,7 +47,7 @@ Examples in **svelte**
 	import { generate_HTML } from 'json-in-details';
 
 	const json_object = JSON.parse('{"hello":"world"}');
-	const html = generate_HTML(json_object, { escape_HTML: true, show_newline_chars: false });
+	const html = generate_HTML(json_object, { escape_HTML: false, show_newline_chars: false });
 	// console.log(html)
 </script>
 
@@ -60,14 +60,14 @@ Examples in **svelte**
 <script>
 	// import 'json-in-details/styles.css';
 	import init from 'json-in-details';
+	import { get_path, generate_HTML, handle_key_navigation } from 'json-in-details';
 
 	let path = '?';
 
 	const container_id = 'my-jid';
 	const container_selector = `#${container_id}`;
 
-	const { collapse, expand, filter, get_path, generate_HTML, handle_key_navigation } =
-		init(container_selector);
+	const { collapse, expand, filter } = init(container_selector);
 
 	const json_object = JSON.parse('{"hello":"world","foo":{"bar":123}}');
 	const html = generate_HTML(json_object, {

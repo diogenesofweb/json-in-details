@@ -1,7 +1,7 @@
 /**
  * @param {KeyboardEvent} ev
  */
-export function handle_key_navigation(ev) {
+export function handle_keymaps(ev) {
 	if (!['h', 'j', 'k', 'l', 'c', 'e'].includes(ev.key)) {
 		return;
 	}

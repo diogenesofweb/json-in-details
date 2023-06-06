@@ -2,11 +2,12 @@
 	import './jid.css';
 	import { get_path } from '$lib/stuff';
 	import init from '$lib';
-	const { generate_HTML } = init();
-
 	import { createEventDispatcher } from 'svelte';
 	import { storage } from '$utils/local_storage';
-	import { handle_key_navigation } from '$lib/navigate';
+	import { handle_key_navigation } from '$lib/keymaps';
+
+	const { generate_HTML } = init();
+
 	const dispatch = createEventDispatcher();
 
 	/** @type {any} */
