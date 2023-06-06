@@ -17,8 +17,10 @@
 - Foldable nodes
 - Filterable nodes
 - Display path on focus/hover
-- Keyboard navigation (move: hjkl, collapse/expand inner nodes: c/e)
-- Light/dark theme
+- Focusable nodes
+- (Shift)-Tab navigation
+- Keymaps (move: hjkl, collapse/expand child nodes: c/e)
+- Nice light/dark theme
 
 ---
 

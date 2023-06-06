@@ -9,10 +9,10 @@
 	}
 
 	const opts = [
-		[0, 'no'],
-		[1, 'starts with "/" or "http(s)://"'],
-		[2, 'starts with "http(s)://"'],
-		[3, 'valid URL']
+		[0, 'No'],
+		[1, 'String starts with "/" or "http(s)://"'],
+		[2, 'String starts with "http(s)://"'],
+		[3, 'String a valid URL']
 	];
 </script>
 
