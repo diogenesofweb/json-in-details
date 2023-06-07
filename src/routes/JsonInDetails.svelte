@@ -21,8 +21,15 @@
 		show_newline_chars: storage.show_newline_char.value
 	});
 
+	/** @type {(ev: KeyboardEvent) => void} */
+	let on_key;
+
+	if (storage.keymaps.value) {
+		on_key = on_keydown;
+	}
+
 	/** @param {KeyboardEvent} ev */
-	function on_key(ev) {
+	function on_keydown(ev) {
 		if (ev.key === 'y') {
 			if (ev.target instanceof HTMLElement) {
 				// console.log(ev);

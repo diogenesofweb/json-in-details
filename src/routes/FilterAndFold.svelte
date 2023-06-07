@@ -3,6 +3,7 @@
 	import init from '$lib';
 	import { my_json } from '$utils/stores';
 	import { onDestroy } from 'svelte';
+	import { storage } from '$utils/local_storage';
 	const { collapse, expand, filter } = init();
 
 	let text = '';
@@ -10,7 +11,7 @@
 	onDestroy(() => unsub());
 </script>
 
-<section class="alpha">
+<section class="alpha" class:sticky={storage.sticky.value === 1}>
 	<div class="form v2">
 		<label class="field">
 			<input

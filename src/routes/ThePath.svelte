@@ -1,6 +1,7 @@
 <script>
 	import { Btn, Icon } from '@kazkadien/svelte';
 	import { addSnack, notifyError } from '$utils/Snacks.svelte';
+	import { storage } from '$utils/local_storage';
 
 	export let title = '$';
 
@@ -18,7 +19,7 @@
 	}
 </script>
 
-<div class="path beta">
+<div class="path beta" class:sticky={storage.sticky.value === 2}>
 	<div class="path-panel f-system">
 		<div class="val" title="Path">{title}</div>
 		<Btn id="copy-path" iconOnly variant="text" colored on:click={handle_copy} title="Copy path">
@@ -29,10 +30,6 @@
 
 <style>
 	.path {
-		z-index: 1;
-		top: 0;
-		position: sticky;
-
 		background: var(--bg3);
 	}
 	.path-panel {

@@ -1,6 +1,6 @@
 <script>
 	import { storage } from '$utils/local_storage';
-	import { Btn, Field, Icon } from '@kazkadien/svelte';
+	import { BoxField, BoxFieldEntry, Btn, Field, Icon, ThemeFormSelect } from '@kazkadien/svelte';
 
 	/** @type {HTMLDialogElement} */
 	let dialog;
@@ -14,6 +14,12 @@
 		[2, 'String starts with "http(s)://"'],
 		[3, 'String a valid URL']
 	];
+
+	const panels = [
+		[0, 'No'],
+		[1, 'Filter'],
+		[2, 'Node path']
+	];
 </script>
 
 <Btn iconOnly variant="text" on:click={() => dialog.showModal()}>
@@ -22,30 +28,20 @@
 
 <dialog bind:this={dialog}>
 	<form class="form v2" on:submit|preventDefault>
-		<Field label="Escape HTML">
-			<select
-				value={storage.escape_HTML.value}
-				on:change={(ev) => {
-					const v = ev.currentTarget.value === 'true' ? true : false;
-					storage.escape_HTML.set(v);
-				}}
-			>
-				{#each [true, false] as el}
-					<option>{el}</option>
-				{/each}
-			</select>
-		</Field>
+		<ThemeFormSelect />
 
-		<Field label="Show newline chars">
+		<Field label="Sticky Panel">
 			<select
-				value={storage.show_newline_char.value}
+				value={storage.sticky.value}
 				on:change={(ev) => {
-					const v = ev.currentTarget.value === 'true' ? true : false;
-					storage.show_newline_char.set(v);
+					// console.log(storage.clickable_links.value);
+					const v = +ev.currentTarget.value;
+					// console.log(v);
+					storage.sticky.set(v);
 				}}
 			>
-				{#each [true, false] as el}
-					<option>{el}</option>
+				{#each panels as el}
+					<option value={el[0]}>{el[1]}</option>
 				{/each}
 			</select>
 		</Field>
@@ -65,6 +61,44 @@
 				{/each}
 			</select>
 		</Field>
+
+		<BoxField rows>
+			<BoxFieldEntry label="Escape HTML">
+				<input
+					type="checkbox"
+					checked={storage.escape_HTML.value}
+					on:change={(ev) => {
+						// @ts-ignore
+						const v = ev.target.checked;
+						storage.escape_HTML.set(v);
+					}}
+				/>
+			</BoxFieldEntry>
+
+			<BoxFieldEntry label="Show newline chars `/n/r`">
+				<input
+					type="checkbox"
+					checked={storage.show_newline_char.value}
+					on:change={(ev) => {
+						// @ts-ignore
+						const v = ev.target.checked;
+						storage.show_newline_char.set(v);
+					}}
+				/>
+			</BoxFieldEntry>
+
+			<BoxFieldEntry label="Enable keymaps">
+				<input
+					type="checkbox"
+					checked={storage.keymaps.value}
+					on:change={(ev) => {
+						// @ts-ignore
+						const v = ev.target.checked;
+						storage.keymaps.set(v);
+					}}
+				/>
+			</BoxFieldEntry>
+		</BoxField>
 	</form>
 </dialog>
 

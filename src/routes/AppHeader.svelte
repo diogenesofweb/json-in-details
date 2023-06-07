@@ -1,6 +1,5 @@
 <script>
 	import { Dropdown, Icon } from '@kazkadien/svelte';
-	import { ThemeSelect } from '@kazkadien/svelte';
 	import { dev } from '$app/environment';
 	import AppHomeLink from './AppHomeLink.svelte';
 	import AppSettings from './AppSettings.svelte';
@@ -25,12 +24,6 @@
 		>
 			<Icon name="github" />
 		</a>
-
-		<Dropdown variant="text" iconOnly align="right" overshadow>
-			<Icon name="brightness_low" slot="dropbtn" />
-
-			<ThemeSelect />
-		</Dropdown>
 
 		<AppSettings />
 	</div>

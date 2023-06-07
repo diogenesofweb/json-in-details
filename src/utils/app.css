@@ -28,6 +28,12 @@ a.btn {
 	text-underline-offset: 3px;
 }
 
+.sticky {
+	z-index: 1;
+	position: sticky;
+	top: 0;
+}
+
 :root {
 	--border: 1px solid var(--bga1);
 	--br: 0.5rem;
