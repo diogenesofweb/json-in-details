@@ -9,8 +9,7 @@ export function handle_keymaps(ev) {
 	// console.log(ev);
 	const el = ev.target;
 
-	const is_html_elem = el instanceof HTMLElement;
-	if (!is_html_elem) return;
+	if (!(el instanceof HTMLElement)) return;
 
 	if (ev.key === 'e' || ev.key === 'c') {
 		// console.log('e');
@@ -29,30 +28,33 @@ export function handle_keymaps(ev) {
 			const dtl = el.parentElement;
 			if (dtl instanceof HTMLDetailsElement) dtl.open = true;
 
-			const l = el.nextElementSibling?.firstElementChild || null;
-			// console.log(l);
-			focus(l);
-		}
+			let next = el.nextElementSibling?.firstElementChild || null;
 
-		if (el.tagName === 'DIV') {
-			// console.log(el);
-
-			let sub = el.nextElementSibling;
-
-			while (sub) {
-				// console.log(sub);
-				if (sub instanceof HTMLDetailsElement) {
-					sub.open = true;
-					const l = sub.querySelector('.jid--block > :first-child');
-					// console.log(l);
-					focus(l);
-					sub = null;
+			while (next) {
+				// console.log(ns);
+				if (next.style.display === 'none') {
+					next = next.nextElementSibling;
+				} else {
 					break;
 				}
-
-				sub = sub.nextElementSibling;
 			}
+
+			return focus(next);
 		}
+
+		// if (el.tagName === 'DIV') {
+		// 	// console.log(el);
+		// 	let sub = el.nextElementSibling;
+		// 	while (sub) {
+		// 		// console.log(sub);
+		// 		if (sub instanceof HTMLDetailsElement) {
+		// 			sub.open = true;
+		// 			const l = sub.querySelector('.jid--block > :first-child');
+		// 			return focus(l);
+		// 		}
+		// 		sub = sub.nextElementSibling;
+		// 	}
+		// }
 
 		return;
 	}
@@ -65,8 +67,7 @@ export function handle_keymaps(ev) {
 	// console.log('children: ' + parent.children.length);
 
 	if (ev.key === 'h' && parent.previousElementSibling) {
-		focus(parent.previousElementSibling);
-		return;
+		return focus(parent.previousElementSibling);
 	}
 
 	if (parent.children.length < 1) {
@@ -82,15 +83,26 @@ export function handle_keymaps(ev) {
 		} else {
 			next = el.parentElement?.nextElementSibling || null;
 		}
-
 		// console.log(next);
 
-		if (!next) {
-			focus(parent.children[0]);
-			return;
+		while (next) {
+			// console.log(ns);
+			if (next.style.display === 'none') {
+				next = next.nextElementSibling;
+			} else {
+				break;
+			}
 		}
-		focus(next);
-		return;
+
+		if (!next) {
+			for (const child of parent.children) {
+				if (child.style.display !== 'none') {
+					return focus(child);
+				}
+			}
+		}
+
+		return focus(next);
 	} else if (ev.key === 'k') {
 		/** @type {Element | null } */
 		let prev = null;
@@ -100,15 +112,27 @@ export function handle_keymaps(ev) {
 			prev = el.parentElement?.previousElementSibling || null;
 		}
 
+		while (prev) {
+			// console.log(ns);
+			if (prev.style.display === 'none') {
+				prev = prev.previousElementSibling;
+			} else {
+				break;
+			}
+		}
 		// console.log(prev);
 
 		if (!prev) {
-			focus(parent.children[parent.children.length - 1]);
-			return;
+			const arr = [...parent.children].reverse();
+			for (const child of arr) {
+				// console.log(child);
+				if (child.style.display !== 'none') {
+					return focus(child);
+				}
+			}
 		}
 
-		focus(prev);
-		return;
+		return focus(prev);
 	}
 }
 
@@ -116,6 +140,8 @@ export function handle_keymaps(ev) {
  * @param {Element | null} el
  */
 function focus(el) {
+	if (!el) return;
+
 	if (el instanceof HTMLDetailsElement) {
 		el.firstElementChild.focus();
 		return;
