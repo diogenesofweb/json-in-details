@@ -44,6 +44,9 @@
 
 			<p>c - collapse all child nodes</p>
 			<p>e - expand all child nodes</p>
+
+			<p>y - copy node</p>
+			<p>p - copy node path</p>
 		</Dtl>
 	</section>
 

@@ -21,7 +21,7 @@
 <div class="path beta">
 	<div class="path-panel f-system">
 		<div class="val" title="Path">{title}</div>
-		<Btn iconOnly variant="text" colored on:click={handle_copy} title="Copy path">
+		<Btn id="copy-path" iconOnly variant="text" colored on:click={handle_copy} title="Copy path">
 			<Icon name="content_copy" />
 		</Btn>
 	</div>

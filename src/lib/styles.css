@@ -134,3 +134,8 @@ html.dark .jid,
 .jid--null {
 	color: var(--_fg-empty);
 }
+
+.jid--link {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}

@@ -94,7 +94,7 @@ function digest_val(val) {
 		}
 
 		if (do_check_links && is_valid_link(val, do_check_links)) {
-			return `<a class="${hc.link}" href=${val.replaceAll(q, '"')}>${val}</a>`;
+			return `<a class="${hc.link}" href=${val.replaceAll(q, '"')}>"${val}"</a>`;
 		}
 
 		if (do_stringify) {
