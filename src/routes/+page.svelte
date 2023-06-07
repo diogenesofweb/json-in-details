@@ -32,7 +32,7 @@
 		<Dtl heading="Search" open>
 			<div>
 				press <i>COLLAPSE </i>icon {'->'} press <i>Ctrl+F</i>
-				{'->'} type search <i>text</i>
+				{'->'} matches will auto expand nodes
 			</div>
 		</Dtl>
 
