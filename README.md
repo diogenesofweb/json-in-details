@@ -24,8 +24,6 @@
 
 ---
 
-## Package
-
 [source](./src/lib/) [npm](https://www.npmjs.com/package/json-in-details)
 
 ### Install
@@ -35,6 +33,8 @@ npm install json-in-details
 # or
 pnpm add json-in-details
 ```
+
+---
 
 ### Usage
 
@@ -62,7 +62,7 @@ Examples in **svelte**
 <script>
 	// import 'json-in-details/styles.css';
 	import init from 'json-in-details';
-	import { get_path, generate_HTML, handle_key_navigation } from 'json-in-details';
+	import { get_path, generate_HTML, handle_keymaps } from 'json-in-details';
 
 	let path = '?';
 
@@ -98,12 +98,26 @@ Examples in **svelte**
 <div
 	id={container_id}
 	class="jid"
-	on:keydown={handle_key_navigation}
+	on:keydown={handle_keymaps}
 	on:focusin={(ev) => (path = get_path(ev))}
 >
 	{@html html}
 </div>
 ```
+
+<details>
+<summary>Keymaps</summary>
+  <p>h - move focus left (parent node)</p>
+  <p>j - move focus down (next sibling)</p>
+  <p>k - move focus up (previous sibling)</p>
+  <p>l - move focus right (child node)</p>
+  <p>c - collapse all child nodes</p>
+  <p>e - expand all child nodes</p>
+  <p>y - copy node</p>
+  <p>p - copy node path</p>
+</details>
+
+---
 
 ### Styling
 

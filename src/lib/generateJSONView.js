@@ -40,15 +40,20 @@ export const hc = {
 	item: `${cp}item`
 };
 
-/** @param {string | URL} str */
+/** @param {string} str */
 function is_valid_URL(str) {
 	try {
-		const _ = new URL(str);
-		return true;
+		if (str.startsWith('http://') || str.startsWith('https://')) {
+			const _ = new URL(str);
+			// return url.protocol === 'http:' || url.protocol === 'https:';
+			return true;
+		}
 	} catch (e) {
 		// console.warn(e);
 		return false;
 	}
+
+	return false;
 }
 
 /**

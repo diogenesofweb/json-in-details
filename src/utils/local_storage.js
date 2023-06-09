@@ -6,7 +6,7 @@ export const storage = {
 	theme: setupStorage('theme', ''),
 	sticky: setupStorage('sticky', 2),
 
-	keymaps: setupStorage('escape_HTML', true),
+	keymaps: setupStorage('keymaps', true),
 
 	clickable_links: setupStorage('clickable_links', 0),
 	escape_HTML: setupStorage('escape_HTML', true),
