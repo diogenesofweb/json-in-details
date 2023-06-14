@@ -147,7 +147,7 @@
 		padding-block: var(--sy-l);
 
 		border-radius: 1em;
-		width: clamp(300px, 94vw, 90ch);
+		width: clamp(300px, 90vw, 90ch);
 
 		display: grid;
 		gap: 2em;

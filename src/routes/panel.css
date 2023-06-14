@@ -1,0 +1,17 @@
+#filter,
+#path {
+	padding-inline: var(--sx-s);
+	padding-block: 0.5em;
+	line-height: 1.5;
+	border: 1px solid var(--fga);
+	border-radius: var(--g);
+	background: var(--bg);
+}
+
+.panel {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: var(--g);
+	align-items: center;
+	margin-block: var(--g);
+}

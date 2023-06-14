@@ -113,8 +113,6 @@ Examples in **svelte**
   <p>l - move focus right (child node)</p>
   <p>c - collapse all child nodes</p>
   <p>e - expand all child nodes</p>
-  <p>y - copy node</p>
-  <p>p - copy node path</p>
 </details>
 
 ---

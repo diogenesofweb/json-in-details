@@ -1,4 +1,4 @@
-@import '@kazkadien/svelte/styles.css';
+@import '@kazkadien/svelte/styles.css' layer(kazkadien);
 
 :is(.btn):hover {
 	outline: none;
@@ -6,16 +6,24 @@
 button.btn.outlined {
 	background: var(--__bga);
 }
-/* button.btn.outlined:hover { */
-/* 	border-color: var(--__fgo); */
-/* } */
-/* :is(.dtl, .btn) { */
-/* 	background: var(--bg2); */
-/* } */
+.btn {
+	border-width: 1px;
+}
+
+.btn.custom {
+	background: var(--bg);
+	border-width: 1px;
+	color: var(--fg);
+	border-color: var(--fga);
+}
+.btn.custom:is(:hover, :focus-visible) {
+	color: var(--__fg);
+	border-color: currentColor;
+}
+
 .form,
 .form :is(.field) {
 	background: var(--bg);
-	/* outline: 1px solid red; */
 }
 /* a.btn.text { */
 /* 	background: var(--bg); */

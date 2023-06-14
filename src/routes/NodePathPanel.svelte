@@ -20,9 +20,9 @@
 </script>
 
 <div class="path beta" class:sticky={storage.sticky.value === 2}>
-	<div class="path-panel f-system">
-		<div class="val" title="Path">{title}</div>
-		<Btn id="copy-path" iconOnly variant="text" colored on:click={handle_copy} title="Copy path">
+	<div class=" panel path-panel f-system">
+		<div id="path" class="val" title="Path">{title}</div>
+		<Btn id="copy-path" iconOnly variant="custom" on:click={handle_copy} title="Copy path">
 			<Icon name="content_copy" />
 		</Btn>
 	</div>
@@ -30,22 +30,13 @@
 
 <style>
 	.path {
-		background: var(--bg3);
-	}
-	.path-panel {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		gap: 1ch;
-		align-items: center;
-
-		/* border-bottom: 4px solid var(--bg0); */
-		box-shadow: 0px 8px 6px -4px var(--bg0);
-
-		margin-block: 2em;
-		padding-inline: var(--sx-s);
-	}
-	.val {
-		padding-block: var(--sx-s);
 		color: var(--__fg);
 	}
+
+	/* .path-panel { */
+	/**/
+	/* 	border-bottom: 4px solid var(--bg0); */
+	/* 	box-shadow: 0px 8px 6px -4px var(--bg0); */
+	/**/
+	/* } */
 </style>

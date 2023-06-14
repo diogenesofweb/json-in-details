@@ -1,11 +1,12 @@
 <script>
 	import { Dtl, Icon } from '@kazkadien/svelte';
 	import JsonInDetails from './JsonInDetails.svelte';
-	import FilterAndFold from './FilterAndFold.svelte';
-	import ThePath from './ThePath.svelte';
+	import FilterPanel from './FilterPanel.svelte';
+	import NodePathPanel from './NodePathPanel.svelte';
 	import Manage from './Manage.svelte';
 	import { my_json } from '$utils/stores';
 	import { onDestroy } from 'svelte';
+	import './panel.css';
 
 	let path = '';
 
@@ -18,22 +19,25 @@
 </svelte:head>
 
 <article>
-	<section>
-		<Manage />
-	</section>
+	<Manage />
 
-	<section id="start" class="f-mono alpha">
-		<FilterAndFold />
-		<ThePath title={path} />
+	<section id="start" class="">
+		<FilterPanel />
+		<NodePathPanel title={path} />
 		<JsonInDetails json={$my_json} on:path_change={(ev) => (path = ev.detail)} />
 	</section>
 
 	<section class="tips f-mono">
 		<Dtl heading="Search" open>
-			<div>
-				press <i>COLLAPSE </i>icon {'->'} press <i>Ctrl+F</i>
-				{'->'} matches will auto expand nodes
-			</div>
+			<ol>
+				<li>
+					Press <i>COLLAPSE </i>icon
+					<Icon name="unfold_less_double" />
+				</li>
+
+				<li>Press <i>Ctrl+F</i></li>
+				<li>Browser will auto expand matched nodes</li>
+			</ol>
 		</Dtl>
 
 		<Dtl heading="Keymaps">
@@ -59,14 +63,15 @@
 	article {
 		/* max-width: 120ch; */
 		/* margin-inline: auto; */
-
+		--g: var(--btn-br, 0.5em);
 		padding-inline: var(--sx-m);
-		padding-block: 2em;
+		padding-block: 1em;
 		background: var(--bg0);
 	}
 
 	#start {
 		position: relative;
+		scroll-margin-block-start: var(--g);
 	}
 
 	#to-top {
@@ -76,7 +81,7 @@
 	}
 
 	#to-top:not(:hover) {
-		opacity: 0.3;
+		opacity: 0.6;
 	}
 
 	.tips {
