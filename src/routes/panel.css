@@ -3,9 +3,9 @@
 	padding-inline: var(--sx-s);
 	padding-block: 0.5em;
 	line-height: 1.5;
-	border: 1px solid var(--fga);
+	border: 1px solid var(--fl);
 	border-radius: var(--g);
-	background: var(--bg);
+	background: var(--bg3);
 }
 
 .panel {

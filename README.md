@@ -121,11 +121,11 @@ Examples in **svelte**
 
 1. Import `styles.css`, or just copy-past [its content](./src/lib/styles.css).
 2. Add class `jid` to the container element.
-3. Dark mode: add class `dark` to the container or to `<html>`.
+3. Dark mode: add class `dark` to the container.
 
 ```css
 @import 'json-in-details/styles.css' layer(jid);
 
 /* .jid {} */
-/* :is(html.dark .jid, .jid.dark) {} */
+/* .jid.dark {} */
 ```

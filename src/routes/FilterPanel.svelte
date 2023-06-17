@@ -92,14 +92,16 @@
 	/* section { */
 	/* } */
 
-	label {
+	label,
+	.form {
 		border: none;
 		background: transparent;
 	}
 
 	input:is(:hover, :focus-visible) {
 		outline-offset: 0px;
-		border-color: var(--__fg);
+		border-color: transparent;
+		outline-color: var(--__fl);
 	}
 
 	.btns {

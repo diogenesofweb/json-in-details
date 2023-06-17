@@ -1,5 +1,5 @@
 <script>
-	import { Dropdown, Icon } from '@kazkadien/svelte';
+	import { Icon } from '@kazkadien/svelte';
 	import { dev } from '$app/environment';
 	import AppHomeLink from './AppHomeLink.svelte';
 	import AppSettings from './AppSettings.svelte';
@@ -46,7 +46,7 @@
 		padding-block: 0.5em;
 
 		/* border: var(--border); */
-		border-bottom: 3px double var(--bga1);
+		border-bottom: 1px solid var(--fl);
 		/* border-top: none; */
 	}
 	b {

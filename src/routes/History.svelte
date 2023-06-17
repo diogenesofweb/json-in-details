@@ -112,6 +112,6 @@
 	}
 
 	li:not(:last-child) {
-		border-bottom: 1px solid var(--fga);
+		border-bottom: 1px solid var(--fl);
 	}
 </style>

@@ -17,8 +17,7 @@
 		<div class="btns">
 			<Btn
 				accent="gamma"
-				variant="outlined"
-				colored
+				variant="filled"
 				text="New"
 				on:click={() => {
 					new_entry_comp.on_open();
@@ -26,7 +25,7 @@
 			/>
 			<Btn
 				accent="alpha"
-				variant="outlined"
+				variant="filled"
 				text="History"
 				on:click={() => {
 					history_comp.on_open();

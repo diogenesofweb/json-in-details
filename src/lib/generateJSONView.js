@@ -218,6 +218,7 @@ function handle_objectlike(key, value, is_last, prev_path) {
 	// let brakets = { ...braketsArr };
 	const path = prev_path || key;
 	let elems = '';
+	let data_items = 0;
 
 	if (value instanceof Array) {
 		brakets = { ...brakets_4_array };
@@ -229,6 +230,7 @@ function handle_objectlike(key, value, is_last, prev_path) {
 		elems += make_from_array(value, path);
 
 		brakets.closed = `[ ... ${value.length} ]${ends_with}`;
+		data_items = value.length;
 	} else {
 		// } else if (value instanceof Object) {
 		brakets = { ...brakets_4_object };
@@ -242,13 +244,14 @@ function handle_objectlike(key, value, is_last, prev_path) {
 		elems += make_from_object(entries, path);
 
 		brakets.closed = `{ ... ${entries.length} }${ends_with}`;
+		data_items = entries.length;
 	}
 
 	const withKey = key ? `<span class="${hc.ok}">"${key}":</span>` : '';
 
 	const result = `
 <details class="${cp}dtl" open>
-  <summary ${t(path)}>
+  <summary ${t(path)} data-items="${data_items}">
     ${withKey}
     <span class="on-open">${brakets.start}</span>
     <span class="on-closed">${brakets.closed}</span>

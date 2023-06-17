@@ -24,7 +24,7 @@
 	footer {
 		padding-block: 10vh;
 		padding-inline: var(--sx-m);
-		border-top: 3px double var(--bga1);
+		border-top: 3px double var(--fl0);
 		background: var(--bg0);
 	}
 

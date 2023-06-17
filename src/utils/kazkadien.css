@@ -3,18 +3,18 @@
 :is(.btn):hover {
 	outline: none;
 }
-button.btn.outlined {
-	background: var(--__bga);
-}
-.btn {
-	border-width: 1px;
-}
+/* button.btn.outlined { */
+/* 	background: var(--__bga); */
+/* } */
+/* .btn { */
+/* 	border-width: 1px; */
+/* } */
 
 .btn.custom {
-	background: var(--bg);
+	background: var(--bg3);
 	border-width: 1px;
 	color: var(--fg);
-	border-color: var(--fga);
+	border-color: var(--fl);
 }
 .btn.custom:is(:hover, :focus-visible) {
 	color: var(--__fg);
@@ -22,62 +22,19 @@ button.btn.outlined {
 }
 
 .form,
-.form :is(.field) {
+.form :where(.field) {
 	background: var(--bg);
 }
+
 /* a.btn.text { */
 /* 	background: var(--bg); */
 /* } */
 
 :root {
-	--hue-sat-bg: 220, 20%;
-
-	--bg0: hsl(var(--hue-sat-bg), 89%);
-	--bg1: hsl(var(--hue-sat-bg), 93%);
-	--bg2: hsl(var(--hue-sat-bg), 96%);
-	--bg3: hsl(var(--hue-sat-bg), 98%);
-	--bg4: hsl(var(--hue-sat-bg), 100%);
-	--bg: var(--bg2);
-
-	--_l: 50%;
-	--bga0: hsl(var(--hue-sat-bg), var(--_l), 0.1);
-	--bga1: hsl(var(--hue-sat-bg), var(--_l), 0.25);
-	--bga2: hsl(var(--hue-sat-bg), var(--_l), 0.5);
-	--bga: var(--bga0);
-
-	--fg0: hsl(0, 0%, 6%);
-	--fg1: hsl(0, 0%, 16%);
-	--fg2: hsl(0, 0%, 26%);
-	--fg3: hsl(0, 0%, 36%);
-	--fg: var(--fg1);
-
-	--fga0: hsla(0, 0%, 0%, 0.5);
-	--fga1: hsla(0, 0%, 0%, 0.75);
-	--fga: var(--fga0);
+	--scrollbar-thumb: var(--fl);
+	--scrollbar-thumb-hover: var(--fg2);
 }
-
 html.dark {
-	--hue-sat-bg: 195, 4%;
-
-	--bg0: hsl(var(--hue-sat-bg), 7%);
-	--bg1: hsl(var(--hue-sat-bg), 9%);
-	--bg2: hsl(var(--hue-sat-bg), 11%);
-	--bg3: hsl(var(--hue-sat-bg), 12%);
-	--bg4: hsl(var(--hue-sat-bg), 15%);
-	--bg: var(--bg2);
-
-	--bga0: hsl(0, 0%, 50%, 0.1);
-	--bga1: hsl(0, 0%, 50%, 0.2);
-	--bga2: hsl(0, 0%, 50%, 0.5);
-	--bga: var(--bga0);
-
-	--fg0: hsl(0, 0%, 98%);
-	--fg1: hsl(0, 0%, 88%);
-	--fg2: hsl(0, 0%, 78%);
-	--fg3: hsl(0, 0%, 68%);
-	--fg: var(--fg1);
-
-	--fga0: hsla(0, 0%, 100%, 0.4);
-	--fga1: hsla(0, 0%, 100%, 0.6);
-	--fga: var(--fga0);
+	--scrollbar-thumb: var(--fl0);
+	--scrollbar-thumb-hover: var(--fl2);
 }

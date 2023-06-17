@@ -66,7 +66,7 @@
 		--g: var(--btn-br, 0.5em);
 		padding-inline: var(--sx-m);
 		padding-block: 1em;
-		background: var(--bg0);
+		/* background: var(--bg0); */
 	}
 
 	#start {

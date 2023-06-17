@@ -5,7 +5,7 @@ html {
 
 body {
 	color: var(--fg);
-	background-color: var(--bg0);
+	background-color: var(--bg1);
 
 	accent-color: var(--fg-alpha);
 	line-height: 1.6;
@@ -35,7 +35,7 @@ a.btn {
 }
 
 :root {
-	--border: 1px solid var(--bga1);
+	--border: 1px solid var(--fl);
 	--br: 0.5rem;
 
 	/* spacing x-axis */

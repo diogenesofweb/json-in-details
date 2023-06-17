@@ -142,7 +142,7 @@
 
 <style>
 	article {
-		background: var(--bg2);
+		background: var(--bg);
 		padding-inline: var(--sx-m);
 		padding-block: var(--sy-l);
 

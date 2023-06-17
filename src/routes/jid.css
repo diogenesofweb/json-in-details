@@ -1,6 +1,13 @@
 @import '$lib/styles.css' layer(jid);
 /* @import '$lib/styles.css'; */
 /* if html not escaped */
+
+.jid {
+	margin-top: calc(var(--g) * 2);
+	border-radius: var(--g);
+	/* border: 1px solid var(--fl); */
+}
+
 .jid .string a {
 	color: var(--fg2);
 	text-underline-offset: 2px;
@@ -8,6 +15,7 @@
 .jid .string a:hover {
 	color: var(--fg);
 }
+
 .jid ::selection {
 	background: var(--bga1);
 }

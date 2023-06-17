@@ -61,7 +61,8 @@
 </script>
 
 <div
-	class="jid dark2"
+	class="jid"
+	class:dark={document.documentElement.classList.contains('dark')}
 	class:preline
 	on:keydown={on_key}
 	on:focusin={(ev) => {
@@ -71,13 +72,3 @@
 >
 	{@html html}
 </div>
-
-<style>
-	.jid {
-		margin-top: calc(var(--g) * 2);
-		border-radius: var(--g);
-	}
-	/* div { */
-	/* 	border: 1px solid var(--bga); */
-	/* } */
-</style>
