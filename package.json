@@ -40,7 +40,7 @@
 		"!dist/**/*.spec.*"
 	],
 	"devDependencies": {
-		"@kazkadien/svelte": "^0.27.0",
+		"@kazkadien/svelte": "^0.28.0",
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/adapter-cloudflare": "^2.3.0",
 		"@sveltejs/kit": "^1.20.4",

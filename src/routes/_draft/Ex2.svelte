@@ -1,13 +1,13 @@
 <script>
 	import '$lib/styles.css';
-	import init from '$lib';
+	import init, { generate_HTML, get_path } from '$lib';
 
 	let path = '?';
 
 	const container_id = 'my-jid';
 	const container_selector = `#${container_id}`;
 
-	const { collapse, expand, filter, get_path, generate_HTML } = init(container_selector);
+	const { collapse, expand, filter } = init(container_selector);
 
 	const json_object = JSON.parse('{"hello":"world","foo":{"bar":123}}');
 	const html = generate_HTML(json_object, { escape_HTML: true, show_newline_chars: false });
