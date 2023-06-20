@@ -16,11 +16,20 @@
 		</nav>
 
 		<a
+			href="https://github.com/diogenesofweb/fjv"
+			target="_blank"
+			class="btn text icon-only"
+			title="Chrome Extension"
+		>
+			<Icon name="extension" />
+		</a>
+
+		<a
 			href={PKG['homepage']}
 			target="_blank"
 			rel="noopener noreferrer"
 			class="btn text icon-only"
-			title="code repo"
+			title="Code Repo"
 		>
 			<Icon name="github" />
 		</a>

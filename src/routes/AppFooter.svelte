@@ -4,11 +4,22 @@
 </script>
 
 <footer>
-	<section lang="en">
-		More:
-		<a href="https://hotatap.pages.dev/app" target="_blank" class="btn text">
-			<span>Web client for REST API testing</span>
+	<section class="fsb">
+		<a
+			href="https://chrome.google.com/webstore/detail/functional-json-viewer/cokkmplppnaigoodkkjopoblfaelibab"
+			target="_blank"
+			title="Install extension"
+		>
+			<img src="/cws.png" alt="Available in the Chrome Web Store" />
 		</a>
+		<div class="">
+			<div class="hh">More:</div>
+			<div>
+				<a href="https://hotatap.pages.dev/app" target="_blank" class="btn text alpha">
+					<span>Web client for REST API testing</span>
+				</a>
+			</div>
+		</div>
 	</section>
 
 	<nav class="fsb g1">
@@ -29,6 +40,11 @@
 	}
 
 	section {
-		margin-bottom: 2em;
+		display: flex;
+		margin-bottom: 3em;
+	}
+
+	.hh {
+		text-align: right;
 	}
 </style>

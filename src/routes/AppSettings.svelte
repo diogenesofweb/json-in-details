@@ -22,7 +22,7 @@
 	];
 </script>
 
-<Btn iconOnly variant="text" title="settings" on:click={() => dialog.showModal()}>
+<Btn iconOnly variant="text" title="Settings" on:click={() => dialog.showModal()}>
 	<Icon name="settings" />
 </Btn>
 
