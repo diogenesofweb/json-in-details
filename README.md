@@ -1,10 +1,13 @@
 # JSON Viewer
 
-## Web App
+## Online:
 
-[live](https://json-in-details.pages.dev)
+[Web App](https://json-in-details.pages.dev)
+| [Chrome Extension](https://chrome.google.com/webstore/detail/functional-json-viewer/cokkmplppnaigoodkkjopoblfaelibab)
 
 ![sceeenshot](./Screenshot.png)
+
+---
 
 ### Notes
 
@@ -19,7 +22,7 @@
 - Display path on focus/hover
 - Focusable nodes
 - (Shift)-Tab navigation
-- Keymaps (move: hjkl, collapse/expand child nodes: c/e)
+- Keymaps (Vim like)
 - Nice light/dark theme
 
 ---
