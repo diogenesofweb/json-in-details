@@ -1,7 +1,6 @@
 <script>
-	import { addSnack, notifyError } from '$utils/Snacks.svelte';
 	import { my_json } from '$utils/stores';
-	import { Field } from '@kazkadien/svelte';
+	import { Field, snack_error, snack_new } from '@kazkadien/svelte';
 	import { idb } from './db';
 
 	/** @type {HTMLDialogElement} */
@@ -42,7 +41,7 @@
 			const res_ok = res.ok;
 			if (!res_ok) {
 				const msg = `HTTP Response Code:: [${res.status}]`;
-				addSnack(msg, 'danger');
+				snack_new(msg, 'danger');
 			}
 
 			let data = await res.json();
@@ -64,7 +63,7 @@
 
 			url = '';
 		} catch (e) {
-			notifyError(e);
+			snack_error(e);
 			my_json.set({});
 		} finally {
 			is_loading = false;
@@ -108,7 +107,7 @@
 				});
 			} catch (error) {
 				// console.error(error);
-				notifyError(error);
+				snack_error(error);
 			} finally {
 				dialog.close();
 			}

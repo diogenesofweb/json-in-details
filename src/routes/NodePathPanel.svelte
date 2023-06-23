@@ -1,6 +1,5 @@
 <script>
-	import { Btn, Icon } from '@kazkadien/svelte';
-	import { addSnack, notifyError } from '$utils/Snacks.svelte';
+	import { Btn, Icon, snack_error, snack_new } from '@kazkadien/svelte';
 	import { storage } from '$utils/local_storage';
 
 	export let title = '$';
@@ -11,10 +10,10 @@
 		navigator.clipboard
 			.writeText(title)
 			.then(() => {
-				addSnack('Copied to clipboard !');
+				snack_new('Copied to clipboard !');
 			})
 			.catch((err) => {
-				notifyError(err);
+				snack_error(err);
 			});
 	}
 </script>

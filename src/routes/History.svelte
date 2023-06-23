@@ -1,7 +1,6 @@
 <script>
-	import { notifyError } from '$utils/Snacks.svelte';
 	import { my_json } from '$utils/stores';
-	import { Btn, Icon } from '@kazkadien/svelte';
+	import { Btn, Icon, snack_error } from '@kazkadien/svelte';
 	import { idb } from './db';
 
 	/** @type {HTMLDialogElement} */
@@ -28,7 +27,7 @@
 				my_json.set(data);
 				dialog.close();
 			})
-			.catch((e) => notifyError(e));
+			.catch((e) => snack_error(e));
 	}
 
 	export function on_open() {

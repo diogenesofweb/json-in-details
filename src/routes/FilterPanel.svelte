@@ -1,10 +1,9 @@
 <script>
-	import { Btn, Icon } from '@kazkadien/svelte';
+	import { Btn, Icon, snack_error, snack_new } from '@kazkadien/svelte';
 	import init from '$lib';
 	import { my_json } from '$utils/stores';
 	import { onDestroy } from 'svelte';
 	import { storage } from '$utils/local_storage';
-	import { addSnack, notifyError } from '$utils/Snacks.svelte';
 	const { collapse, expand, filter } = init();
 
 	let text = '';
@@ -19,9 +18,9 @@
 			const str = JSON.stringify(data, null, '\t');
 			await navigator.clipboard.writeText(str);
 			const msg = 'Copied to clipboard !';
-			addSnack(msg);
+			snack_new(msg);
 		} catch (error) {
-			notifyError(error);
+			snack_error(error);
 		}
 	}
 

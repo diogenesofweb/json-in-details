@@ -25,6 +25,7 @@
 	<nav class="fsb g1">
 		<AppHomeLink />
 
+		<!-- svelte-ignore missing-declaration -->
 		<a href={PKG['homepage']} target="_blank" rel="noopener noreferrer" class="btn text">
 			Github
 		</a>

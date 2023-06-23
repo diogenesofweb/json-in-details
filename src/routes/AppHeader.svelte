@@ -24,6 +24,7 @@
 			<Icon name="extension" />
 		</a>
 
+		<!-- svelte-ignore missing-declaration -->
 		<a
 			href={PKG['homepage']}
 			target="_blank"

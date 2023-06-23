@@ -3,11 +3,10 @@
 	import '$utils/kazkadien.css';
 	import '$utils/dialog.css';
 
-	import { AppWrapper } from '@kazkadien/svelte';
+	import { AppWrapper, AppSnacks } from '@kazkadien/svelte';
 	import AppFooter from './AppFooter.svelte';
 	import AppHeader from './AppHeader.svelte';
 	import AppIcons from './AppIcons.svelte';
-	import Snacks from '$utils/Snacks.svelte';
 </script>
 
 <AppWrapper>
@@ -33,7 +32,7 @@
 		<AppFooter />
 	</div>
 
-	<Snacks />
+	<AppSnacks />
 </AppWrapper>
 
 <style>

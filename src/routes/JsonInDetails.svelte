@@ -5,7 +5,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { storage } from '$utils/local_storage';
 	import { handle_keymaps } from '$lib/keymaps';
-	import { addSnack, notifyError } from '$utils/Snacks.svelte';
+	import { snack_error, snack_new } from '@kazkadien/svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -44,8 +44,8 @@
 
 				navigator.clipboard
 					.writeText(node_text)
-					.then(() => addSnack('Copied to clipboard !'))
-					.catch((err) => notifyError(err));
+					.then(() => snack_new('Copied to clipboard !'))
+					.catch((err) => snack_error(err));
 			}
 
 			return;
@@ -60,6 +60,7 @@
 	}
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
 	class="jid"
 	class:dark={document.documentElement.classList.contains('dark')}
