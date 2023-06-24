@@ -3,6 +3,7 @@
 	import { dev } from '$app/environment';
 	import AppHomeLink from './AppHomeLink.svelte';
 	import AppSettings from './AppSettings.svelte';
+	console.log(PKG);
 </script>
 
 <header class="alpha">
