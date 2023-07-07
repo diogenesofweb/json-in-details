@@ -8,7 +8,7 @@ interface MyDB extends DBSchema {
 }
 interface IMyDBValue {
 	name: string;
-	src: 'file' | 'url';
+	src: 'file' | 'url' | 'form';
 	json: any;
 	date: Date;
 }

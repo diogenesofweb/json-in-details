@@ -17,6 +17,7 @@
 <svelte:head>
 	<title>JSON Viewer</title>
 	<meta name="description" content="View and explore formatted JSON data in a browser." />
+	<link rel="canonical" href="https://json-viewer.delphic.top/" />
 </svelte:head>
 
 <article>

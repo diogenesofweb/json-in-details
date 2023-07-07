@@ -1,6 +1,6 @@
 <script>
 	import { my_json } from '$utils/stores';
-	import { Field, snack_error, snack_new } from '@kazkadien/svelte';
+	import { Alert, Btn, Field, snack_error, snack_new } from '@kazkadien/svelte';
 	import { idb } from './db';
 
 	/** @type {HTMLDialogElement} */
@@ -115,6 +115,34 @@
 
 		reader.readAsText(file);
 	}
+
+	let alert = '';
+	let text = '';
+
+	function handle_text() {
+		// console.log(text);
+
+		try {
+			const json = JSON.parse(text);
+			// console.log('string', str);
+			// console.log('json', json);
+			my_json.set(json);
+
+			idb.set({
+				name: text.length < 100 ? text : text.substring(0, 100),
+				src: 'form',
+				json,
+				date: new Date()
+			});
+
+			alert = '';
+			dialog.close();
+		} catch (error) {
+			// console.error(error);
+			// snack_error(error);
+			alert = error.message || 'Invalid JSON string';
+		}
+	}
 </script>
 
 <dialog id="new-entry" bind:this={dialog}>
@@ -122,18 +150,32 @@
 		<span class="loader alpha" />
 	{:else}
 		<article class="alpha">
+			<form class="form v2" on:submit|preventDefault={on_url}>
+				<Field label="URL">
+					<input id="fetch-url" type="url" bind:value={url} />
+				</Field>
+			</form>
+
+			<div class="tac">~ ~ ~</div>
+
 			<form class="form v2" on:submit|preventDefault>
 				<Field label="Upload JSON file">
 					<input type="file" accept="application/json" on:change={processInputFile} />
 				</Field>
 			</form>
 
-			<div class="tac">OR</div>
+			<div class="tac">~ ~ ~</div>
 
-			<form class="form v2" on:submit|preventDefault={on_url}>
-				<Field label="URL">
-					<input id="fetch-url" type="url" bind:value={url} />
+			<form class="form v2 text" on:submit|preventDefault={handle_text}>
+				<Field label="JSON string">
+					<textarea bind:value={text} cols="30" rows="10" />
 				</Field>
+
+				{#if alert}
+					<Alert body={alert} closable={false} accent="danger" />
+				{/if}
+
+				<Btn type="submit" text="submit" />
 			</form>
 		</article>
 	{/if}
@@ -149,12 +191,17 @@
 		width: clamp(300px, 90vw, 90ch);
 
 		display: grid;
-		gap: 2em;
+		gap: 1em;
 	}
 
 	.loader {
 		font-size: clamp(1rem, 5vw, 5rem);
 		display: block;
 		margin: 2em;
+	}
+
+	form.text {
+		display: grid;
+		gap: 2em;
 	}
 </style>
