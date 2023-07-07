@@ -10,7 +10,7 @@
 			target="_blank"
 			title="Install extension"
 		>
-			<img src="/cws.png" alt="Available in the Chrome Web Store" />
+			<img src="/cws.png" alt="Available in the Chrome Web Store" width="206" height="58" />
 		</a>
 		<div class="">
 			<div class="hh">More:</div>

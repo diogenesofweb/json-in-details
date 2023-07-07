@@ -16,6 +16,7 @@
 
 <svelte:head>
 	<title>JSON Viewer</title>
+	<meta name="description" content="View and explore formatted JSON data in a browser." />
 </svelte:head>
 
 <article>
@@ -54,7 +55,7 @@
 		</Dtl>
 	</section>
 
-	<a id="to-top" href="#start" class="btn icon-only outlined">
+	<a id="to-top" href="#start" title="scroll to top" class="btn icon-only outlined">
 		<Icon name="keyboard_arrow_up" />
 	</a>
 </article>
