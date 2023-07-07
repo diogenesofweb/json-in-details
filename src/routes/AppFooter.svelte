@@ -3,7 +3,7 @@
 	// console.log('x')
 </script>
 
-<footer>
+<footer class="alpha">
 	<section class="fsb">
 		<a
 			href="https://chrome.google.com/webstore/detail/functional-json-viewer/cokkmplppnaigoodkkjopoblfaelibab"
@@ -25,10 +25,20 @@
 	<nav class="fsb g1">
 		<AppHomeLink />
 
-		<!-- svelte-ignore missing-declaration -->
-		<a href={PKG['homepage']} target="_blank" rel="noopener noreferrer" class="btn text">
-			Github
-		</a>
+		<div class="fsb">
+			<!-- svelte-ignore missing-declaration -->
+			<a href={PKG['homepage']} target="_blank" rel="noopener noreferrer" class="btn text">
+				Github repo
+			</a>
+			<a
+				href="https://www.npmjs.com/package/json-in-details"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn text"
+			>
+				NPM package
+			</a>
+		</div>
 	</nav>
 </footer>
 
