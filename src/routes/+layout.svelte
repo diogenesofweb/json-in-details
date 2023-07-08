@@ -2,6 +2,7 @@
 	import '$utils/app.css';
 	import '$utils/kazkadien.css';
 	import '$utils/dialog.css';
+	import './panel.css';
 
 	import { AppWrapper, AppSnacks } from '@kazkadien/svelte';
 	import AppFooter from './AppFooter.svelte';

@@ -6,7 +6,6 @@
 	import Manage from './Manage.svelte';
 	import { my_json } from '$utils/stores';
 	import { onDestroy } from 'svelte';
-	import './panel.css';
 
 	let path = '';
 
