@@ -30,6 +30,7 @@
 
 	/** @param {KeyboardEvent} ev */
 	function on_keydown(ev) {
+		// console.log(ev.key);
 		if (ev.key === 'y') {
 			if (ev.target instanceof HTMLElement) {
 				// console.log(ev);

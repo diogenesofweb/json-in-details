@@ -110,10 +110,10 @@ Examples in **svelte**
 
 <details>
 <summary>Keymaps</summary>
-  <p>h - move focus left (parent node)</p>
-  <p>j - move focus down (next sibling)</p>
-  <p>k - move focus up (previous sibling)</p>
-  <p>l - move focus right (child node)</p>
+  <p>h | ArrowLeft - move focus left (parent node)</p>
+  <p>j | ArrowDown - move focus down (next sibling)</p>
+  <p>k | ArrowUp - move focus up (previous sibling)</p>
+  <p>l | ArrowRight - move focus right (child node)</p>
   <p>c - collapse all child nodes</p>
   <p>e - expand all child nodes</p>
 </details>
@@ -127,7 +127,7 @@ Examples in **svelte**
 3. Dark mode: add class `dark` to the container.
 
 ```css
-@import 'json-in-details/styles.css' layer(jid);
+@import "json-in-details/styles.css" layer(jid);
 
 /* .jid {} */
 /* .jid.dark {} */

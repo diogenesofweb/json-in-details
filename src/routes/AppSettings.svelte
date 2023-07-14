@@ -26,7 +26,16 @@
 	<Icon name="settings" />
 </Btn>
 
-<dialog bind:this={dialog}>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<dialog
+	bind:this={dialog}
+	on:click={(ev) => {
+		if (ev.target === dialog) {
+			dialog.close();
+		}
+	}}
+>
 	<form class="form v2" on:submit|preventDefault>
 		<ThemeFormSelect />
 
