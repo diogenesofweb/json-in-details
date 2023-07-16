@@ -41,11 +41,23 @@
 	}
 </script>
 
-<dialog class="alpha" id="recent-entries" bind:this={dialog} on:close={() => (arr = [])}>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<dialog
+	class="alpha"
+	id="recent-entries"
+	bind:this={dialog}
+	on:close={() => (arr = [])}
+	on:click={(ev) => ev.target === dialog && dialog.close()}
+>
 	{#if is_loading}
 		<span class="loader" />
 	{:else}
 		<section>
+			<div class="btns">
+				<Btn accent="danger" text="close" on:click={() => dialog.close()} />
+			</div>
+
 			<ul>
 				{#each arr as el}
 					<li>
@@ -84,6 +96,12 @@
 		border-radius: 1em;
 		background-color: var(--bg);
 		/* max-width: 100ch; */
+	}
+
+	.btns {
+		display: flex;
+		justify-content: flex-end;
+		padding-bottom: 1ch;
 	}
 
 	li {

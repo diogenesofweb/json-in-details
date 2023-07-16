@@ -145,7 +145,9 @@
 	}
 </script>
 
-<dialog id="new-entry" bind:this={dialog}>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<dialog id="new-entry" bind:this={dialog} on:click={(ev) => ev.target === dialog && dialog.close()}>
 	{#if is_loading}
 		<span class="loader alpha" />
 	{:else}
