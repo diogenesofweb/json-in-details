@@ -21,8 +21,8 @@
 
 	async function on_open() {
 		if (is_cached) {
-			dialog.showModal();
-			return;
+			// console.log('cache');
+			return dialog.showModal();
 		}
 
 		try {
