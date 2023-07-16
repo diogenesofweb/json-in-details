@@ -42,6 +42,7 @@
 		}
 	}
 
+	// TODO:
 	/** @param {string} val */
 	function copy2clipboard(val) {
 		navigator.clipboard

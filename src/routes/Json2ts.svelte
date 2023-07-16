@@ -57,6 +57,7 @@
 		}
 	}
 
+	// TODO:
 	/** @param {string} val */
 	function copy2clipboard(val) {
 		navigator.clipboard
@@ -65,14 +66,13 @@
 				// snack_new('Copied to clipboard !');
 			})
 			.catch((err) => {
-				console.log(err);
+				console.error(err);
 				// snack_error(err);
 			});
 	}
 </script>
 
 <Btn accent="base" variant="filled" text="d.ts" on:click={on_open} />
-
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog
@@ -98,10 +98,8 @@
 			/>
 		</div>
 
-		<!-- {#each vals as el} -->
 		{#each formatted as el, idx}
 			<code>
-				<!-- <pre class="f-mono">{el}</pre> -->
 				<pre class="f-mono">{@html el}</pre>
 				<BtnIcon
 					title="copy"
