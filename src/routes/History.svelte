@@ -1,6 +1,6 @@
 <script>
 	import { my_json } from '$utils/stores';
-	import { Btn, Icon, snack_error } from '@kazkadien/svelte';
+	import { Btn, BtnIcon, Icon, snack_error } from '@kazkadien/svelte';
 	import { idb } from './db';
 
 	/** @type {HTMLDialogElement} */
@@ -30,7 +30,7 @@
 			.catch((e) => snack_error(e));
 	}
 
-	export function on_open() {
+	function on_open() {
 		dialog.showModal();
 		idb.getAll().then((v) => {
 			/** @type {IOne[] } */
@@ -41,6 +41,7 @@
 	}
 </script>
 
+<Btn accent="alpha" variant="filled" text="History" on:click={on_open} />
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog
@@ -55,7 +56,14 @@
 	{:else}
 		<section>
 			<div class="btns">
-				<Btn accent="danger" text="close" on:click={() => dialog.close()} />
+				<!-- <Btn accent="danger" text="close" on:click={() => dialog.close()} /> -->
+				<BtnIcon
+					title="close"
+					iconName="close"
+					variant="text"
+					accent="danger"
+					on:click={() => dialog.close()}
+				/>
 			</div>
 
 			<ul>
@@ -92,16 +100,25 @@
 <style>
 	section {
 		padding-inline: 1em;
-		padding-block: 2em;
+		padding-block: 0 2em;
 		border-radius: 1em;
 		background-color: var(--bg);
 		/* max-width: 100ch; */
 	}
 
 	.btns {
+		/* position: sticky; */
+		/* z-index: 100; */
+		/* top: 0px; */
+
+		background-color: var(--bg);
+
 		display: flex;
 		justify-content: flex-end;
-		padding-bottom: 1ch;
+
+		/* border-bottom: var(--border); */
+		padding-block: 1ch;
+		margin-bottom: 1em;
 	}
 
 	li {

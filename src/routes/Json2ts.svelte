@@ -1,5 +1,4 @@
 <script>
-	import json2ts from 'json-to-ts';
 	import { my_json } from '$utils/stores';
 	import { Btn, BtnIcon, snack_error } from '@kazkadien/svelte';
 
@@ -20,13 +19,14 @@
 		is_cached = false;
 	});
 
-	export function on_open() {
+	async function on_open() {
 		if (is_cached) {
 			dialog.showModal();
 			return;
 		}
 
 		try {
+			const json2ts = (await import('json-to-ts')).default;
 			// console.log({ json });
 			vals = json2ts(json);
 			// console.log(vals);
@@ -88,7 +88,14 @@
 				text="copy all"
 				on:click={() => copy2clipboard(vals.reduce((c, p) => p + '\n\n' + c, ''))}
 			/>
-			<Btn accent="danger" text="close" on:click={() => dialog.close()} />
+			<!-- <Btn accent="danger" text="close" on:click={() => dialog.close()} /> -->
+			<BtnIcon
+				title="close"
+				iconName="close"
+				variant="text"
+				accent="danger"
+				on:click={() => dialog.close()}
+			/>
 		</div>
 
 		<!-- {#each vals as el} -->
@@ -110,7 +117,7 @@
 <style>
 	section {
 		padding-inline: 1em;
-		padding-block: 2em;
+		padding-block: 1em 2em;
 		border-radius: 1em;
 		background-color: var(--bg1);
 		min-width: min(90vw, 80ch);
@@ -146,6 +153,6 @@
 
 	.btns {
 		display: flex;
-		padding-bottom: 1em;
+		padding-bottom: 3em;
 	}
 </style>

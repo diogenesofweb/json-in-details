@@ -46,6 +46,7 @@
 		"@sveltejs/kit": "^1.22.1",
 		"@sveltejs/package": "^2.1.0",
 		"idb": "^7.1.1",
+		"json-to-ts": "^1.7.0",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",
 		"publint": "^0.1.16",
@@ -57,8 +58,5 @@
 	},
 	"types": "./dist/index.d.ts",
 	"main": "./dist/index.js",
-	"type": "module",
-	"dependencies": {
-		"json-to-ts": "^1.7.0"
-	}
+	"type": "module"
 }

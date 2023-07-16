@@ -1,11 +1,11 @@
 <script>
 	import { my_json } from '$utils/stores';
-	import { Alert, Btn, Field, snack_error, snack_new } from '@kazkadien/svelte';
+	import { Alert, Btn, BtnIcon, Field, snack_error, snack_new } from '@kazkadien/svelte';
 	import { idb } from './db';
 
 	/** @type {HTMLDialogElement} */
 	let dialog;
-	export function on_open() {
+	function on_open() {
 		dialog.showModal();
 	}
 	let url = '';
@@ -145,6 +145,7 @@
 	}
 </script>
 
+<Btn accent="gamma" variant="filled" text="New" on:click={on_open} />
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog id="new-entry" bind:this={dialog} on:click={(ev) => ev.target === dialog && dialog.close()}>
@@ -152,6 +153,16 @@
 		<span class="loader alpha" />
 	{:else}
 		<article class="alpha">
+			<div class="btns">
+				<BtnIcon
+					title="close"
+					iconName="close"
+					variant="text"
+					accent="danger"
+					on:click={() => dialog.close()}
+				/>
+			</div>
+
 			<form class="form v2" on:submit|preventDefault={on_url}>
 				<Field label="URL">
 					<input id="fetch-url" type="url" bind:value={url} />
@@ -187,13 +198,17 @@
 	article {
 		background: var(--bg);
 		padding-inline: var(--sx-m);
-		padding-block: var(--sy-l);
+		padding-block: 1ch var(--sy-l);
 
 		border-radius: 1em;
 		width: clamp(300px, 90vw, 90ch);
 
 		display: grid;
 		gap: 1em;
+	}
+	.btns {
+		display: flex;
+		justify-content: end;
 	}
 
 	.loader {
