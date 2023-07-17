@@ -42,17 +42,19 @@
 		}
 	}
 
-	// TODO:
+	let copy_text = 'copy';
 	/** @param {string} val */
 	function copy2clipboard(val) {
 		navigator.clipboard
 			.writeText(val)
 			.then(() => {
-				// snack_new('Copied to clipboard !');
+				copy_text = 'copied !';
+				setTimeout(() => {
+					copy_text = 'copy';
+				}, 1000);
 			})
 			.catch((err) => {
 				console.log(err);
-				// snack_error(err);
 			});
 	}
 </script>
@@ -70,7 +72,7 @@
 		<div class="btns fsb">
 			<Btn
 				variant="outlined"
-				text="copy"
+				text={copy_text}
 				on:click={() => copy2clipboard(JSON.stringify(schema, null, 2))}
 			/>
 

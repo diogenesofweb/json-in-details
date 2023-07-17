@@ -22,7 +22,7 @@
 - Display path on focus/hover
 - Focusable nodes
 - (Shift)-Tab navigation
-- Keymaps (Vim like)
+- Keymaps (Vim inspired)
 - Nice light/dark theme
 
 ---

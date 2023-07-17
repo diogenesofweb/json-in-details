@@ -15,14 +15,14 @@
 		</div>
 
 		<div class="fsb gg beta" style="z-index: 2;">
-			<Dropdown grow overshadow>
+			<Dropdown grow overshadow align="right">
 				<svelte:fragment slot="dropbtn">
-					<b>generate</b>
 					<Icon name="code" />
+					<b>convert to</b>
 				</svelte:fragment>
+				<Json2schema />
 				<Json2ts />
 				<Json2go />
-				<Json2schema />
 			</Dropdown>
 			<!-- <Json2ts /> -->
 			<!-- <Json2schema /> -->

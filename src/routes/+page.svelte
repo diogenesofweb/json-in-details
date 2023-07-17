@@ -17,7 +17,7 @@
 	<title>JSON Viewer</title>
 	<meta
 		name="description"
-		content="Free Online JSON Viewer. Explore formatted JSON data in a browser. Free and open source web app"
+		content="Free online JSON viewer, reader, formatter and converter. Explore formatted JSON data in a browser. Convert JSON to JSON Schema, Typescript interfaces, Golang structs"
 	/>
 	<link rel="canonical" href="https://json-viewer.delphic.top/" />
 </svelte:head>
@@ -44,17 +44,40 @@
 			</ol>
 		</Dtl>
 
-		<Dtl heading="Keymaps">
-			<p>h - move focus left (parent node)</p>
-			<p>j - move focus down (next sibling)</p>
-			<p>k - move focus up (previous sibling)</p>
-			<p>l - move focus right (child node)</p>
+		<Dtl heading="Keymaps (Vim inspired)">
+			<p><b>h</b> | ArrowLeft - move focus to the parent node</p>
+			<p><b>j</b> | ArrowDown - move focus to the next sibling node</p>
+			<p><b>k</b> | ArrowUp - move focus to the previous sibling node</p>
+			<p><b>l</b> | ArrowRight - move focus to the child node</p>
 
-			<p>c - collapse all child nodes</p>
-			<p>e - expand all child nodes</p>
+			<p><b>c</b> - fold all child nodes</p>
+			<p><b>e</b> - unfold all child nodes</p>
 
-			<p>y - copy node</p>
-			<p>p - copy node path</p>
+			<p><b>y</b> - copy node content</p>
+			<p><b>p</b> - copy node path</p>
+		</Dtl>
+
+		<Dtl heading="Convert JSON">
+			<p>
+				Converting JSON to
+				<a href="https://json-schema.org/" target="_blank">JSON Schema</a>
+				is done with
+				<a href="https://github.com/aspecto-io/genson-js" target="_blank">genson-js</a>.
+			</p>
+
+			<p>
+				Converting JSON to
+				<a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>
+				interfaces is done with
+				<a href="https://github.com/MariusAlch/json-to-ts" target="_blank">json-to-ts</a>.
+			</p>
+
+			<p>
+				Converting JSON to
+				<a href="https://go.dev/" target="_blank">Golang</a>
+				structs is done with
+				<a href="https://github.com/mholt/json-to-go" target="_blank">json-to-go</a>.
+			</p>
 		</Dtl>
 	</section>
 
@@ -71,6 +94,16 @@
 		padding-inline: var(--sx-m);
 		padding-block: 1em;
 		/* background: var(--bg0); */
+	}
+	p > b {
+		color: var(--fg-gamma);
+	}
+	p > a {
+		color: var(--fg-alpha);
+		text-underline-offset: 3px;
+		&:hover {
+			color: var(--fg-beta);
+		}
 	}
 
 	#start {

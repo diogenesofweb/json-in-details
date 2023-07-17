@@ -64,7 +64,7 @@
 </script>
 
 <Btn variant="text" title="Generate TypeScript interfaces from JSON" on:click={on_open}>
-	Typescript
+	Typescript Interfaces
 </Btn>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->

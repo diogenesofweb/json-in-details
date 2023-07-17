@@ -83,7 +83,7 @@
 	}
 </script>
 
-<Btn variant="text" title="Generate Golang structs from JSON" on:click={on_open}>Go</Btn>
+<Btn variant="text" title="Generate Golang structs from JSON" on:click={on_open}>Go Structs</Btn>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog
