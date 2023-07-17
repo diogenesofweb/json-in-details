@@ -57,7 +57,7 @@
 	}
 </script>
 
-<Btn accent="base" variant="filled" text="schema" on:click={on_open} />
+<Btn variant="text" title="Generate JSON Schema from JSON" on:click={on_open}>JSON Schema</Btn>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog
@@ -68,12 +68,16 @@
 >
 	<article>
 		<div class="btns fsb">
-			<Btn text="copy" on:click={() => copy2clipboard(JSON.stringify(schema, null, 2))} />
+			<Btn
+				variant="outlined"
+				text="copy"
+				on:click={() => copy2clipboard(JSON.stringify(schema, null, 2))}
+			/>
 
 			<BtnIcon
 				title="close"
 				iconName="close"
-				variant="text"
+				variant="outlined"
 				accent="danger"
 				on:click={() => dialog.close()}
 			/>

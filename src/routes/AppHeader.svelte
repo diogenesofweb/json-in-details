@@ -41,7 +41,7 @@
 
 <style>
 	header {
-		z-index: 100;
+		/* z-index: 100; */
 		background: var(--bg);
 		/* padding-inline: var(--sx-m); */
 	}
