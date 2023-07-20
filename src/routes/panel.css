@@ -1,17 +1,23 @@
 #filter,
 #path {
-	padding-inline: var(--sx-s);
-	padding-block: 0.5em;
-	line-height: 1.5;
-	border: 1px solid var(--fl);
-	border-radius: var(--g);
-	background: var(--bg3);
+  padding-inline: var(--sx-s);
+  padding-block: 0.5em;
+  line-height: 1.5;
+  border: 1px solid var(--fl);
+  border-radius: var(--g);
+  background: var(--bg3);
 }
 
 .panel {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	gap: var(--g);
-	align-items: center;
-	margin-block: var(--g);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--g);
+  align-items: center;
+  margin-block: var(--g);
+
+  display: flex;
+  flex-wrap: wrap;
+}
+.panel > :first-child {
+  flex-grow: 1;
 }

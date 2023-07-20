@@ -4,7 +4,7 @@
 </script>
 
 <footer class="alpha">
-	<section class="fsb">
+	<section class="fsb g1">
 		<a
 			href="https://chrome.google.com/webstore/detail/functional-json-viewer/cokkmplppnaigoodkkjopoblfaelibab"
 			target="_blank"
@@ -12,9 +12,10 @@
 		>
 			<img src="/cws.png" alt="Available in the Chrome Web Store" width="206" height="58" />
 		</a>
-		<div class="">
+
+		<div class="more">
 			<div class="hh">More:</div>
-			<div>
+			<div style="display: grid;">
 				<a href="https://hotatap.pages.dev/app" target="_blank" class="btn text alpha">
 					<span>Web client for REST API testing</span>
 				</a>
@@ -23,7 +24,9 @@
 	</section>
 
 	<nav class="fsb g1">
-		<AppHomeLink />
+		<div>
+			<AppHomeLink />
+		</div>
 
 		<div class="fsb">
 			<!-- svelte-ignore missing-declaration -->
@@ -53,9 +56,29 @@
 	section {
 		display: flex;
 		margin-bottom: 3em;
+		gap: 2em;
+	}
+
+	:where(section, nav) > :first-child {
+		flex-grow: 100;
+	}
+	.fsb,
+	.more {
+		flex-grow: 1;
+		justify-self: end;
+		/* background: gray; */
 	}
 
 	.hh {
-		text-align: right;
+		text-align: center;
+	}
+
+	/* nav { */
+	/* 	background: gray; */
+	/* } */
+
+	nav a {
+		/* background: gray; */
+		flex-grow: 1;
 	}
 </style>

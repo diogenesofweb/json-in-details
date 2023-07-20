@@ -34,7 +34,7 @@
 			const json2ts = (await import('json-to-ts')).default;
 			// console.log({ json });
 			const vals = json2ts(json);
-			code_text = vals.reduce((c, p) => p + '\n\n' + c, '');
+			code_text = vals.reduce((c, p) => c + '\n\n' + p, '');
 			// console.log(vals);
 			formatted = vals.map((v) => {
 				return v

@@ -13,6 +13,23 @@ dialog {
   /* overflow: hidden; */
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  dialog[open] {
+    animation: anim 500ms ease;
+  }
+
+  @keyframes anim {
+    from {
+      /* transform: translateY(calc(0px - 90vh)); */
+      opacity: 0;
+    }
+    to {
+      /* transform: translateY(0); */
+      opacity: 1;
+    }
+  }
+}
+
 dialog::backdrop {
   background-color: black;
   opacity: 0.66;
