@@ -79,6 +79,18 @@
 				<a href="https://github.com/mholt/json-to-go" target="_blank">json-to-go</a>.
 			</p>
 		</Dtl>
+
+		<Dtl heading="What is JSON ?">
+			<p>
+				JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for
+				humans to read and write, and easy for machines to parse and generate. It is based on a
+				subset of the JavaScript Programming Language Standard and is completely language
+				independent. JSON is built on two structures: a collection of name/value pairs and an
+				ordered list of values. It can be used with various programming languages and supports
+				objects, arrays, strings, numbers, true/false, and null values. JSON is widely supported and
+				can be used for data interchange between different programming languages.
+			</p>
+		</Dtl>
 	</section>
 
 	<a id="to-top" href="#start" title="scroll to top" class="btn icon-only outlined">
