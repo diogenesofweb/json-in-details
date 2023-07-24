@@ -17,7 +17,6 @@
 
 		<a
 			href="https://github.com/diogenesofweb/fjv"
-			target="_blank"
 			class="btn text icon-only"
 			title="Chrome Extension"
 		>
@@ -25,13 +24,7 @@
 		</a>
 
 		<!-- svelte-ignore missing-declaration -->
-		<a
-			href={PKG['homepage']}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="btn text icon-only"
-			title="Code Repo"
-		>
+		<a href={PKG['homepage']} class="btn text icon-only" title="Code Repo">
 			<Icon name="github" />
 		</a>
 

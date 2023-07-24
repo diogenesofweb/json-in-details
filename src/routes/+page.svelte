@@ -60,23 +60,23 @@
 		<Dtl heading="Convert JSON">
 			<p>
 				Converting JSON to
-				<a href="https://json-schema.org/" target="_blank">JSON Schema</a>
+				<a href="https://json-schema.org/">JSON Schema</a>
 				is done with
-				<a href="https://github.com/aspecto-io/genson-js" target="_blank">genson-js</a>.
+				<a href="https://github.com/aspecto-io/genson-js">genson-js</a>.
 			</p>
 
 			<p>
 				Converting JSON to
-				<a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>
+				<a href="https://www.typescriptlang.org/">Typescript</a>
 				interfaces is done with
-				<a href="https://github.com/MariusAlch/json-to-ts" target="_blank">json-to-ts</a>.
+				<a href="https://github.com/MariusAlch/json-to-ts">json-to-ts</a>.
 			</p>
 
 			<p>
 				Converting JSON to
-				<a href="https://go.dev/" target="_blank">Golang</a>
+				<a href="https://go.dev/">Golang</a>
 				structs is done with
-				<a href="https://github.com/mholt/json-to-go" target="_blank">json-to-go</a>.
+				<a href="https://github.com/mholt/json-to-go">json-to-go</a>.
 			</p>
 		</Dtl>
 

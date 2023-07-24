@@ -21,13 +21,7 @@
 				<slot />
 			</div>
 
-			<a
-				id="ua"
-				title="Support Ukraine"
-				href="https://war.ukraine.ua/support-ukraine/"
-				target="_blank"
-				rel="noopener noreferrer">UA</a
-			>
+			<a id="ua" title="Support Ukraine" href="https://war.ukraine.ua/support-ukraine/" />
 		</div>
 
 		<AppFooter />

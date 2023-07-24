@@ -7,7 +7,6 @@
 	<section class="fsb g1">
 		<a
 			href="https://chrome.google.com/webstore/detail/functional-json-viewer/cokkmplppnaigoodkkjopoblfaelibab"
-			target="_blank"
 			title="Install extension"
 		>
 			<img src="/cws.png" alt="Available in the Chrome Web Store" width="206" height="58" />
@@ -16,7 +15,7 @@
 		<div class="more">
 			<div class="hh">More:</div>
 			<div style="display: grid;">
-				<a href="https://hotatap.pages.dev/app" target="_blank" class="btn text alpha">
+				<a href="https://hotatap.pages.dev/app" class="btn text alpha">
 					<span>Web client for REST API testing</span>
 				</a>
 			</div>
@@ -30,17 +29,8 @@
 
 		<div class="fsb">
 			<!-- svelte-ignore missing-declaration -->
-			<a href={PKG['homepage']} target="_blank" rel="noopener noreferrer" class="btn text">
-				Github repo
-			</a>
-			<a
-				href="https://www.npmjs.com/package/json-in-details"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="btn text"
-			>
-				NPM package
-			</a>
+			<a href={PKG['homepage']} class="btn text"> Github repo </a>
+			<a href="https://www.npmjs.com/package/json-in-details" class="btn text"> NPM package </a>
 		</div>
 	</nav>
 </footer>
