@@ -15,7 +15,7 @@
 		<div class="more">
 			<div class="hh">More:</div>
 			<div style="display: grid;">
-				<a href="https://hotatap.pages.dev/app" class="btn text alpha">
+				<a href="https://hotatap.delphic.top/app" class="btn text alpha">
 					<span>Web client for REST API testing</span>
 				</a>
 			</div>
