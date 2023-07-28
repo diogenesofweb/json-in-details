@@ -9,19 +9,23 @@
 		dialog.showModal();
 	}
 	let url = '';
-	// url = 'https://api.oschadbank.ua/pages/currency-rate'; // no CORS err
-	// url = 'https://bank.com.ua/api/uk/v1/rest-ui/find-branch-course?date'; // CORS err
 	let is_loading = false;
 
 	async function on_url() {
-		console.log({ url });
-
+		// console.log({ url });
 		is_loading = true;
 
 		try {
+			const my_url = new URL(url);
+			// console.log(my_url);
+			if (['http', 'https'].includes(my_url.protocol)) {
+				throw new Error('Invalid protocol');
+			}
+			my_url.protocol = 'https';
+			// console.log(my_url.toString());
 			let is_possibly_CORS_error = false;
 
-			let res = await fetch(url).catch((e) => {
+			let res = await fetch(my_url.toString()).catch((e) => {
 				console.error(e);
 				if (e instanceof TypeError) {
 					is_possibly_CORS_error = true;
@@ -73,7 +77,7 @@
 
 	/** @param {Event & { currentTarget: EventTarget & HTMLInputElement; }} ev */
 	function processInputFile(ev) {
-		console.log('processInputFile');
+		// console.log('processInputFile');
 		/** @type {File} */
 		// @ts-ignore
 		const file = ev.currentTarget.files[0];
@@ -165,7 +169,12 @@
 
 			<form class="form v2" on:submit|preventDefault={on_url}>
 				<Field label="URL">
-					<input id="fetch-url" type="url" bind:value={url} />
+					<input
+						id="fetch-url"
+						type="url"
+						bind:value={url}
+						placeholder="https://www.example.com/"
+					/>
 				</Field>
 			</form>
 
@@ -181,14 +190,21 @@
 
 			<form class="form v2 text" on:submit|preventDefault={handle_text}>
 				<Field label="JSON string">
-					<textarea bind:value={text} cols="30" rows="10" />
+					<textarea
+						bind:value={text}
+						cols="30"
+						rows="10"
+						placeholder={`{\n\t"hello": "world"\n}`}
+					/>
 				</Field>
 
 				{#if alert}
 					<Alert body={alert} closable={false} accent="danger" />
 				{/if}
 
-				<Btn type="submit" text="submit" />
+				{#if text}
+					<Btn type="submit" text="submit" />
+				{/if}
 			</form>
 		</article>
 	{/if}
@@ -205,6 +221,7 @@
 
 		display: grid;
 		gap: 1em;
+		tab-size: 2;
 	}
 	.btns {
 		display: flex;
