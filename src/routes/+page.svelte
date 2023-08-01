@@ -109,6 +109,7 @@
 				<li>Keymaps (Vim inspired).</li>
 				<li>History.</li>
 				<li>New JSON entry via file upload, fetch URL or insert JSON string.</li>
+				<li>JSON screenshot (JSON to image .jpeg).</li>
 			</ul>
 		</Dtl>
 

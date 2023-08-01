@@ -63,6 +63,7 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
+	id="jid"
 	class="jid"
 	class:dark={document.documentElement.classList.contains('dark')}
 	class:preline

@@ -117,6 +117,18 @@
 					}}
 				/>
 			</BoxFieldEntry>
+
+			<BoxFieldEntry label="Preview screenshot">
+				<input
+					type="checkbox"
+					checked={storage.preview_screenshot.value}
+					on:change={(ev) => {
+						// @ts-ignore
+						const v = ev.target.checked;
+						storage.preview_screenshot.set(v);
+					}}
+				/>
+			</BoxFieldEntry>
 		</BoxField>
 	</form>
 </dialog>

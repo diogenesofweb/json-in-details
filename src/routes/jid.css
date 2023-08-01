@@ -3,7 +3,7 @@
 /* if html not escaped */
 
 .jid {
-	margin-top: calc(var(--g) * 2);
+	/* margin-top: calc(var(--g) * 2); */
 	border-radius: var(--g);
 	/* border: 1px solid var(--fl); */
 }

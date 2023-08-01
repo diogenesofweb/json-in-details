@@ -46,6 +46,7 @@
 		"@sveltejs/kit": "^1.22.4",
 		"@sveltejs/package": "^2.2.0",
 		"genson-js": "^0.0.8",
+		"html-to-image": "^1.11.11",
 		"idb": "^7.1.1",
 		"json-to-ts": "^1.7.0",
 		"prettier": "^2.8.8",

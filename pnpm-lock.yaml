@@ -23,6 +23,9 @@ devDependencies:
   genson-js:
     specifier: ^0.0.8
     version: 0.0.8
+  html-to-image:
+    specifier: ^1.11.11
+    version: 1.11.11
   idb:
     specifier: ^7.1.1
     version: 7.1.1
@@ -946,6 +949,10 @@ packages:
     dependencies:
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
+    dev: true
+
+  /html-to-image@1.11.11:
+    resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
     dev: true
 
   /idb@7.1.1:

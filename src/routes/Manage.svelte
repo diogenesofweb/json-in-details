@@ -1,10 +1,11 @@
 <script>
+	import { Dropdown, Icon } from '@kazkadien/svelte';
 	import NewEntry from './NewEntry.svelte';
 	import History from './History.svelte';
 	import Json2ts from './Json2ts.svelte';
 	import Json2schema from './Json2schema.svelte';
-	import { Dropdown, Icon } from '@kazkadien/svelte';
 	import Json2go from './Json2go.svelte';
+	import Json2img from './Json2img.svelte';
 </script>
 
 <section>
@@ -15,6 +16,8 @@
 		</div>
 
 		<div class="fsb gg beta" style="z-index: 2;">
+			<Json2img />
+
 			<Dropdown grow overshadow align="right">
 				<svelte:fragment slot="dropbtn">
 					<Icon name="code" />
