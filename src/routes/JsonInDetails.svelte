@@ -6,6 +6,7 @@
 	import { storage } from '$utils/local_storage';
 	import { handle_keymaps } from '$lib/keymaps';
 	import { snack_error, snack_new } from '@kazkadien/svelte';
+	import { browser } from '$app/environment';
 
 	const dispatch = createEventDispatcher();
 
@@ -65,8 +66,8 @@
 <div
 	id="jid"
 	class="jid"
-	class:dark={document.documentElement.classList.contains('dark')}
 	class:preline
+	class:dark={browser && document.documentElement.classList.contains('dark')}
 	on:keydown={on_key}
 	on:focusin={(ev) => {
 		const path = get_path(ev);

@@ -2,6 +2,8 @@
 // /** @type {LinkOpts} */
 // const cl = 0;
 
+import { browser } from '$app/environment';
+
 export const storage = {
 	theme: setupStorage('theme', ''),
 	sticky: setupStorage('sticky', 2),
@@ -26,6 +28,9 @@ function setupStorage(storageKey, defaultsTo) {
 	const isNum = typeof defaultsTo === 'number';
 
 	function get() {
+		if (!browser) {
+			return defaultsTo;
+		}
 		const val = localStorage.getItem(storageKey);
 
 		if (val) {

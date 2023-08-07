@@ -3,14 +3,19 @@
 	import JsonInDetails from './JsonInDetails.svelte';
 	import FilterPanel from './FilterPanel.svelte';
 	import NodePathPanel from './NodePathPanel.svelte';
-	import Manage from './Manage.svelte';
+	// import Manage from './Manage.svelte';
 	import { my_json } from '$utils/stores';
-	import { onDestroy } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	let path = '';
 
 	const unsub = my_json.subscribe(() => (path = '?'));
 	onDestroy(() => unsub());
+
+	let comp = null;
+	onMount(async () => {
+		comp = (await import('./Manage.svelte')).default;
+	});
 </script>
 
 <svelte:head>
@@ -19,11 +24,15 @@
 		name="description"
 		content="Free online JSON viewer, reader, formatter and converter. Explore formatted JSON data in a browser. Convert JSON to JSON Schema, Typescript interfaces, Golang structs"
 	/>
-	<link rel="canonical" href="https://json-viewer.delphic.top/" />
+	<link rel="canonical" href="https://json-viewer.delphic.top" />
 </svelte:head>
 
 <article>
-	<Manage />
+	{#if comp}
+		<svelte:component this={comp} />
+	{/if}
+
+	<!-- <Manage /> -->
 
 	<section id="start" class="">
 		<FilterPanel />
