@@ -1,6 +1,6 @@
 <script>
 	import { my_json } from '$utils/stores';
-	import { Btn, BtnIcon, Icon, snack_error } from '@kazkadien/svelte';
+	import { Btn, BtnIcon, snack_error } from '@kazkadien/svelte';
 	import { idb } from './db';
 
 	/** @type {HTMLDialogElement} */
@@ -31,13 +31,18 @@
 	}
 
 	function on_open() {
+		is_loading = true;
 		dialog.showModal();
-		idb.getAll().then((v) => {
-			/** @type {IOne[] } */
-			const x = [];
-			v.forEach((el) => x.unshift({ name: el.name, date: el.date }));
-			arr = x;
-		});
+		idb
+			.getAll()
+			.then((v) => {
+				/** @type {IOne[] } */
+				const x = [];
+				v.forEach((el) => x.unshift({ name: el.name, date: el.date }));
+				arr = x;
+			})
+			.catch((e) => snack_error(e))
+			.finally(() => (is_loading = false));
 	}
 </script>
 
@@ -69,9 +74,14 @@
 			<ul>
 				{#each arr as el}
 					<li>
-						<Btn variant="text" accent="danger" colored iconOnly on:click={() => on_del(el.date)}>
-							<Icon name="delete" />
-						</Btn>
+						<BtnIcon
+							title="delete"
+							iconName="delete"
+							variant="text"
+							accent="danger"
+							colored
+							on:click={() => on_del(el.date)}
+						/>
 						<div class="time f-mono">
 							<!-- <time>{el.date.toLocaleDateString('fr-CA')}</time> -->
 							<time>

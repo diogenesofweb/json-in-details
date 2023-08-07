@@ -12,6 +12,7 @@
 	const unsub = my_json.subscribe(() => (path = '?'));
 	onDestroy(() => unsub());
 
+	/** @type {typeof import("./Manage.svelte").default | null} */
 	let comp = null;
 	onMount(async () => {
 		comp = (await import('./Manage.svelte')).default;
@@ -19,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>JSON Viewer</title>
+	<title>Online JSON Viewer</title>
 	<meta
 		name="description"
 		content="Free online JSON viewer, reader, formatter and converter. Explore formatted JSON data in a browser. Convert JSON to JSON Schema, Typescript interfaces, Golang structs"
@@ -31,7 +32,6 @@
 	{#if comp}
 		<svelte:component this={comp} />
 	{/if}
-
 	<!-- <Manage /> -->
 
 	<section id="start" class="">
@@ -91,7 +91,7 @@
 			</p>
 		</Dtl>
 
-		<Dtl heading="App description">
+		<Dtl heading="This app">
 			<p>Elegant UI:</p>
 			<ul>
 				<li>Foldable and filterable and focusable nodes.</li>
@@ -124,18 +124,19 @@
 
 		<Dtl heading="What is JSON ?">
 			<p>
-				JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for
-				humans to read and write, and easy for machines to parse and generate. It is based on a
-				subset of the JavaScript Programming Language Standard and is completely language
-				independent. JSON is built on two structures: a collection of name/value pairs and an
-				ordered list of values. It can be used with various programming languages and supports
-				objects, arrays, strings, numbers, true/false, and null values. JSON is widely supported and
-				can be used for data interchange between different programming languages.
+				<a href="https://www.json.org/">JSON</a>
+				(JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans
+				to read and write, and easy for machines to parse and generate. It is based on a subset of the
+				JavaScript Programming Language Standard and is completely language independent. JSON is built
+				on two structures: a collection of name/value pairs and an ordered list of values. It can be
+				used with various programming languages and supports objects, arrays, strings, numbers, true/false,
+				and null values. JSON is widely supported and can be used for data interchange between different
+				programming languages.
 			</p>
 		</Dtl>
 	</section>
 
-	<a id="to-top" href="#start" title="scroll to top" class="btn icon-only outlined">
+	<a id="to-top" href="#start" title="Scroll to top" class="btn icon-only outlined">
 		<Icon name="keyboard_arrow_up" />
 	</a>
 </article>

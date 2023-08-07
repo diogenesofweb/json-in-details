@@ -69,11 +69,11 @@
 	</div>
 
 	<div class="btns alpha">
-		<Btn iconOnly variant="custom" title="Collapse All" on:click={collapse}>
+		<Btn iconOnly variant="custom" title="Collapse all" on:click={collapse}>
 			<Icon name="unfold_less_double" />
 		</Btn>
 
-		<Btn iconOnly variant="custom" title="Expand All" on:click={expand}>
+		<Btn iconOnly variant="custom" title="Expand all" on:click={expand}>
 			<Icon name="unfold_more_double" />
 		</Btn>
 
