@@ -23,7 +23,7 @@
 	<title>Online JSON Viewer</title>
 	<meta
 		name="description"
-		content="Free online JSON viewer, reader, formatter and converter. Explore formatted JSON data in a browser. Convert JSON to JSON Schema, Typescript interfaces, Golang structs"
+		content="Free online JSON viewer, formatter and converter. Generate screenshots, JSON Schema, Typescript interfaces, Golang structs."
 	/>
 	<link rel="canonical" href="https://json-viewer.delphic.top" />
 </svelte:head>
@@ -34,12 +34,13 @@
 	{/if}
 	<!-- <Manage /> -->
 
-	<section id="start" class="">
+	<section id="start">
 		<FilterPanel />
 		<NodePathPanel title={path} />
 		<JsonInDetails json={$my_json} on:path_change={(ev) => (path = ev.detail)} />
 	</section>
 
+	<h1>JSON Viewer</h1>
 	<section class="tips f-mono">
 		<Dtl heading="Search" open>
 			<ul>
@@ -69,29 +70,31 @@
 		</Dtl>
 
 		<Dtl heading="Convert JSON">
-			<p>
-				Converting JSON to
-				<a href="https://json-schema.org/">JSON Schema</a>
-				is done with
-				<a href="https://github.com/aspecto-io/genson-js">genson-js</a>.
-			</p>
+			<ul>
+				<li>
+					Converting JSON to
+					<a href="https://json-schema.org/">JSON Schema</a>
+					is done with
+					<a href="https://github.com/aspecto-io/genson-js">genson-js</a>.
+				</li>
 
-			<p>
-				Converting JSON to
-				<a href="https://www.typescriptlang.org/">Typescript</a>
-				interfaces is done with
-				<a href="https://github.com/MariusAlch/json-to-ts">json-to-ts</a>.
-			</p>
+				<li>
+					Converting JSON to
+					<a href="https://www.typescriptlang.org/">Typescript</a>
+					interfaces is done with
+					<a href="https://github.com/MariusAlch/json-to-ts">json-to-ts</a>.
+				</li>
 
-			<p>
-				Converting JSON to
-				<a href="https://go.dev/">Golang</a>
-				structs is done with
-				<a href="https://github.com/mholt/json-to-go">json-to-go</a>.
-			</p>
+				<li>
+					Converting JSON to
+					<a href="https://go.dev/">Golang</a>
+					structs is done with
+					<a href="https://github.com/mholt/json-to-go">json-to-go</a>.
+				</li>
+			</ul>
 		</Dtl>
 
-		<Dtl heading="This app">
+		<Dtl heading="This App">
 			<p>Elegant UI:</p>
 			<ul>
 				<li>Foldable and filterable and focusable nodes.</li>
@@ -176,8 +179,12 @@
 		opacity: 0.6;
 	}
 
+	h1 {
+		margin-top: max(10vh, 4rem);
+	}
 	.tips {
-		margin-block: 3em;
+		/* margin-block: 3em; */
+		margin-bottom: max(10vh, 4rem);
 		display: grid;
 		gap: 1em;
 	}
