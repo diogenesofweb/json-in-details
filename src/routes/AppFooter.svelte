@@ -43,7 +43,7 @@
 			</li>
 
 			<li>
-				<a href="https://app.tabulamax.com" class="btn text">
+				<a href="https://tabulamax.delphic.top" class="btn text">
 					Design DB tables, generate SQL and KnexJS migraions, TS interfaces, GO structs.
 				</a>
 			</li>
