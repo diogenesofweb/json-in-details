@@ -1,6 +1,6 @@
 <script>
-	import { Icon } from '@kazkadien/svelte';
 	import { dev } from '$app/environment';
+	import MyIcon from '$utils/MyIcon.svelte';
 	import AppHomeLink from './AppHomeLink.svelte';
 	import AppSettings from './AppSettings.svelte';
 </script>
@@ -20,12 +20,12 @@
 			class="btn text icon-only"
 			title="Chrome Extension"
 		>
-			<Icon name="extension" />
+			<MyIcon name="extension" />
 		</a>
 
 		<!-- svelte-ignore missing-declaration -->
 		<a href={PKG['homepage']} class="btn text icon-only" title="Code Repo">
-			<Icon name="github" />
+			<MyIcon name="github" />
 		</a>
 
 		<AppSettings />

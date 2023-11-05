@@ -6,6 +6,7 @@
 	// import Manage from './Manage.svelte';
 	import { my_json } from '$utils/stores';
 	import { onDestroy, onMount } from 'svelte';
+	import MyIcon from '$utils/MyIcon.svelte';
 
 	let path = '';
 
@@ -46,7 +47,7 @@
 			<ul>
 				<li>
 					Press <i>COLLAPSE </i>icon
-					<Icon name="unfold_less_double" />.
+					<MyIcon name="unfold_less_double" />.
 				</li>
 
 				<li>Press <i>Ctrl+F</i>.</li>

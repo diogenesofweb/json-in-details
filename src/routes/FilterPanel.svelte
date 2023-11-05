@@ -1,9 +1,10 @@
 <script>
-	import { Btn, Icon, snack_error, snack_new } from '@kazkadien/svelte';
+	import { Btn, snack_error, snack_new } from '@kazkadien/svelte';
 	import init from '$lib';
 	import { my_json } from '$utils/stores';
 	import { onDestroy } from 'svelte';
 	import { storage } from '$utils/local_storage';
+	import MyIcon from '$utils/MyIcon.svelte';
 	const { collapse, expand, filter } = init();
 
 	let text = '';
@@ -70,19 +71,19 @@
 
 	<div class="btns alpha">
 		<Btn iconOnly variant="custom" title="Collapse all" on:click={collapse}>
-			<Icon name="unfold_less_double" />
+			<MyIcon name="unfold_less_double" />
 		</Btn>
 
 		<Btn iconOnly variant="custom" title="Expand all" on:click={expand}>
-			<Icon name="unfold_more_double" />
+			<MyIcon name="unfold_more_double" />
 		</Btn>
 
 		<Btn iconOnly variant="custom" title="Copy JSON content to clipboard" on:click={handle_copy}>
-			<Icon name="copy_all" />
+			<MyIcon name="copy_all" />
 		</Btn>
 
 		<Btn iconOnly variant="custom" title="Save JSON content to file" on:click={on_save}>
-			<Icon name="file_download" />
+			<MyIcon name="file_save" />
 		</Btn>
 	</div>
 </section>

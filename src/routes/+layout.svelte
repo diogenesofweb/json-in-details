@@ -4,14 +4,15 @@
 	import '$utils/dialog.css';
 	import './panel.css';
 
-	import { AppWrapper, AppSnacks } from '@kazkadien/svelte';
+	import { AppWrapper, AppSnacks, AppIcons } from '@kazkadien/svelte';
 	import AppFooter from './AppFooter.svelte';
 	import AppHeader from './AppHeader.svelte';
-	import AppIcons from './AppIcons.svelte';
+	import MyAppIcons from './AppIcons.svelte';
 </script>
 
 <AppWrapper>
 	<AppIcons />
+	<MyAppIcons />
 
 	<div id="app-container">
 		<div id="view">

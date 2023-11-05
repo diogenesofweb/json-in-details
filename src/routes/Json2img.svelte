@@ -1,8 +1,9 @@
 <script>
-	import { Btn, BtnIcon, Icon, snack_error } from '@kazkadien/svelte';
+	import { Btn, BtnIcon, snack_error } from '@kazkadien/svelte';
 	import { toJpeg } from 'html-to-image';
 	import { tick } from 'svelte';
 	import { storage } from '$utils/local_storage';
+	import MyIcon from '$utils/MyIcon.svelte';
 
 	let is_running = false;
 
@@ -54,7 +55,7 @@
 </script>
 
 <Btn isLoading={is_running} disabled={is_running} variant="filled" title="" on:click={on_click}>
-	<Icon name="screenshot_monitor" />
+	<MyIcon name="screenshot_monitor" />
 	<b>Screenshot</b>
 </Btn>
 
@@ -70,7 +71,7 @@
 		<article>
 			<div class="btns fsb">
 				<Btn variant="outlined" title="Download the screenshot" on:click={on_download}>
-					<Icon name="file_download" />
+					<MyIcon name="file_save" />
 					<b>Download</b>
 				</Btn>
 

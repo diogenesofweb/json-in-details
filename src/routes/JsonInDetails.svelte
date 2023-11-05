@@ -62,8 +62,8 @@
 	}
 </script>
 
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<div
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<code
 	id="jid"
 	class="jid"
 	class:preline
@@ -75,4 +75,10 @@
 	}}
 >
 	{@html html}
-</div>
+</code>
+
+<style>
+	code {
+		display: block;
+	}
+</style>
