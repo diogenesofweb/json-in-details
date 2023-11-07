@@ -5,7 +5,7 @@
 		{
 			url: 'https://hotatap.delphic.top/app',
 			name: 'HoTaTaP',
-			title: 'Test and dubug REST API in the browser'
+			title: 'Test and dubug REST API in the browser.'
 		},
 		{
 			url: 'https://tabulamax.delphic.top',
@@ -13,6 +13,11 @@
 			title: 'Design DB tables, generate SQL and KnexJS migraions, TS interfaces, GO structs.'
 		},
 
+		{
+			url: 'https://generator.colorome.com/',
+			name: 'Color Palette Generator',
+			title: 'Generate color palettes and gradients. Explore shades, tints and tones.'
+		},
 		{
 			url: 'https://icons.delphic.top',
 			name: 'Icon Explorer',
@@ -67,14 +72,14 @@
 
 <style>
 	footer {
-		padding-block: 10vh;
+		padding-block: 4rem 6rem;
 		padding-inline: var(--sx-m);
 		border-top: 3px double var(--fl0);
 		background: var(--bg0);
 	}
 
 	section {
-		padding-block: 1rem;
+		padding-block: 2rem;
 	}
 	.top {
 		display: flex;
@@ -85,6 +90,7 @@
 
 	.hh {
 		margin-bottom: 1em;
+		font-size: 1.15rem;
 	}
 	nav {
 		max-width: 80ch;
