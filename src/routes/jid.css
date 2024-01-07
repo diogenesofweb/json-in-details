@@ -30,3 +30,15 @@
 /* 	--_fg-number: var(--fg-beta); */
 /* 	--_fg-empty: var(--fg-danger); */
 /* } */
+
+/* .jid--dtl > summary { */
+/* color: pink; */
+/* pointer-events: none; */
+
+/* &::after, */
+/* &::before, */
+/* & > span:where(.on-open, .on-closed) { */
+/* 	color: orange; */
+/* 	pointer-events: all; */
+/* } */
+/* } */

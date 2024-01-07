@@ -98,14 +98,21 @@ Examples in **svelte**
 
 <p>Path: {path}</p>
 
-<div
+<code
 	id={container_id}
 	class="jid"
 	on:keydown={handle_keymaps}
 	on:focusin={(ev) => (path = get_path(ev))}
+	on:click={(ev) => {
+		/** @type {HTMLElement } */
+		const elem = ev.target;
+		if (elem.className === 'jid--dtl') {
+			elem.querySelector('summary').focus();
+		}
+	}}
 >
 	{@html html}
-</div>
+</code>
 ```
 
 <details>
@@ -127,7 +134,7 @@ Examples in **svelte**
 3. Dark mode: add class `dark` to the container.
 
 ```css
-@import "json-in-details/styles.css" layer(jid);
+@import 'json-in-details/styles.css' layer(jid);
 
 /* .jid {} */
 /* .jid.dark {} */

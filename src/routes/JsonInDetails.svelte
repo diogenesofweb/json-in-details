@@ -70,8 +70,20 @@
 	class:dark={browser && document.documentElement.classList.contains('dark')}
 	on:keydown={on_key}
 	on:focusin={(ev) => {
+		// console.log(ev);
 		const path = get_path(ev);
 		dispatch('path_change', path);
+	}}
+	on:click={(ev) => {
+		// console.log(ev);
+		// console.log(ev.target);
+		/** @type {HTMLElement } */
+		const elem = ev.target;
+		if (elem.className === 'jid--dtl') {
+			const summary = elem.querySelector('summary');
+			// console.log(summary);
+			summary?.focus();
+		}
 	}}
 >
 	{@html html}
