@@ -1,10 +1,10 @@
 html {
-  scroll-behavior: smooth;
-  scroll-behavior: initial;
+	scroll-behavior: smooth;
+	scroll-behavior: initial;
 }
 
 body {
-  line-height: 1.6;
+	line-height: 1.6;
 }
 
 /* :is(html, body, .f-system) { */
@@ -16,32 +16,32 @@ body {
 /* } */
 
 .sticky {
-  z-index: 1;
-  position: sticky;
-  top: 0.25em;
+	z-index: 1;
+	position: sticky;
+	top: 0.25em;
 }
 
 :root {
-  --border: 1px solid var(--fl);
-  --br: 0.5rem;
+	--border: 1px solid var(--fl0);
+	--br: 0.5rem;
 
-  /* spacing x-axis */
-  /* spacing x-axis */
-  --sx-s: clamp(1ch, 1.5vw, 1rem);
-  --sx-m: clamp(1rem, 3vw, 1.5rem);
-  --sx-l: clamp(3rem, 6vw, 6rem);
+	/* spacing x-axis */
+	/* spacing x-axis */
+	--sx-s: clamp(1ch, 1.5vw, 1rem);
+	--sx-m: clamp(1rem, 3vw, 1.5rem);
+	--sx-l: clamp(3rem, 6vw, 6rem);
 
-  --sx-s: clamp(1ch, 1.75vw, 1rem);
-  --sx-m: clamp(1.5ch, 3vw, 1.75rem);
+	--sx-s: clamp(1ch, 1.75vw, 1rem);
+	--sx-m: clamp(1.5ch, 3vw, 1.75rem);
 
-  /* spacing y-axis */
-  --sy-s: min(0.75rem, 1.5vh);
-  --sy-m: min(1.5rem, 3vh);
-  --sy-l: min(3rem, 6vh);
+	/* spacing y-axis */
+	--sy-s: min(0.75rem, 1.5vh);
+	--sy-m: min(1.5rem, 3vh);
+	--sy-l: min(3rem, 6vh);
 
-  --g-s: clamp(1ch, 1.5vmax, 2ch);
-  /* --g-s: clamp(1rem, 3vmax, 1.5rem); */
-  --g-m: clamp(1rem, 3vmax, 1.5rem);
-  /* --g-m: clamp(1.5rem, 6vmax, 3rem); */
-  --g-l: clamp(3rem, 8vmax, 4rem);
+	--g-s: clamp(1ch, 1.5vmax, 2ch);
+	/* --g-s: clamp(1rem, 3vmax, 1.5rem); */
+	--g-m: clamp(1rem, 3vmax, 1.5rem);
+	/* --g-m: clamp(1.5rem, 6vmax, 3rem); */
+	--g-l: clamp(3rem, 8vmax, 4rem);
 }

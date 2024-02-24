@@ -1,5 +1,5 @@
 <script>
-	import { dev } from '$app/environment';
+	// import { dev } from '$app/environment';
 	import MyIcon from '$utils/MyIcon.svelte';
 	import AppHomeLink from './AppHomeLink.svelte';
 	import AppSettings from './AppSettings.svelte';
@@ -7,26 +7,26 @@
 
 <header class="alpha">
 	<div class="fsb">
-		<nav class="fsb g1">
+		<nav class="">
 			<AppHomeLink />
 
-			{#if dev}
-				<a href="/_draft" class="btn text"><b>Draft</b></a>
-			{/if}
+			<!-- {#if dev} -->
+			<!-- 	<a href="/_draft" class="btn text"><b>Draft</b></a> -->
+			<!-- {/if} -->
+
+			<a
+				href="https://github.com/diogenesofweb/fjv"
+				class="btn text icon-only"
+				title="Chrome Extension"
+			>
+				<MyIcon name="extension" />
+			</a>
+
+			<!-- svelte-ignore missing-declaration -->
+			<a href={PKG['homepage']} class="btn text icon-only" title="Code Repo">
+				<MyIcon name="github" />
+			</a>
 		</nav>
-
-		<a
-			href="https://github.com/diogenesofweb/fjv"
-			class="btn text icon-only"
-			title="Chrome Extension"
-		>
-			<MyIcon name="extension" />
-		</a>
-
-		<!-- svelte-ignore missing-declaration -->
-		<a href={PKG['homepage']} class="btn text icon-only" title="Code Repo">
-			<MyIcon name="github" />
-		</a>
 
 		<AppSettings />
 	</div>
@@ -40,6 +40,12 @@
 	}
 	nav {
 		flex-grow: 1;
+		display: flex;
+		justify-content: end;
+		& > :first-child {
+			/* outline: 1px solid hsl(0 100% 50% / 50%); */
+			margin-right: auto;
+		}
 	}
 
 	div {

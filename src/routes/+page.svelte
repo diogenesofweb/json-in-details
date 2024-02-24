@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>Online JSON Viewer</title>
+	<title>JSON-in-details</title>
 	<meta
 		name="description"
 		content="Free online JSON viewer, formatter and converter. Generate screenshots, JSON Schema, Typescript interfaces, Golang structs."
@@ -29,21 +29,26 @@
 	<link rel="canonical" href="https://json-viewer.delphic.top" />
 </svelte:head>
 
-<article>
+<div class="wrap">
 	{#if comp}
 		<svelte:component this={comp} />
 	{/if}
 	<!-- <Manage /> -->
 
-	<section id="start">
+	<div id="start">
 		<FilterPanel />
 		<NodePathPanel title={path} />
 		<JsonInDetails json={$my_json} on:path_change={(ev) => (path = ev.detail)} />
-	</section>
+	</div>
 
-	<h1>JSON Viewer</h1>
-	<section class="tips f-mono">
-		<Dtl heading="Search" open>
+	<header>
+		<h1>JSON-in-details</h1>
+		<h2>Free online JSON viewer, formatter and converter</h2>
+	</header>
+
+	<div class="tips f-mono">
+		<Dtl open>
+			<h3 slot="heading">Better JSON search</h3>
 			<ul>
 				<li>
 					Press <i>COLLAPSE </i>icon
@@ -55,7 +60,8 @@
 			</ul>
 		</Dtl>
 
-		<Dtl heading="Keymaps (Vim inspired)">
+		<Dtl>
+			<h3 slot="heading">Keymaps (Vim inspired)</h3>
 			<ul>
 				<li><b>h</b> | <b>ArrowLeft</b> - Move focus to the parent node.</li>
 				<li><b>j</b> | <b>ArrowDown</b> - Move focus to the next sibling node.</li>
@@ -70,7 +76,8 @@
 			</ul>
 		</Dtl>
 
-		<Dtl heading="Convert JSON">
+		<Dtl>
+			<h3 slot="heading">Convert JSON</h3>
 			<ul>
 				<li>
 					Converting JSON to
@@ -95,38 +102,42 @@
 			</ul>
 		</Dtl>
 
-		<Dtl heading="This App">
-			<p>Elegant UI:</p>
-			<ul>
-				<li>Foldable and filterable and focusable nodes.</li>
-				<li>Show node path on focus and hover.</li>
-				<li>Configurable clickable links.</li>
-				<li>Light and dark theme.</li>
-			</ul>
+		<Dtl>
+			<h3 slot="heading">Why to use this app?</h3>
+			<div>
+				<p>Elegant UI:</p>
+				<ul>
+					<li>Foldable and filterable and focusable nodes.</li>
+					<li>Show node path on focus and hover.</li>
+					<li>Configurable clickable links.</li>
+					<li>Light and dark theme.</li>
+				</ul>
 
-			<p>Functionality:</p>
+				<p>Functionality:</p>
 
-			<ul>
-				<li>Filter nodes.</li>
-				<li>Collapse all nodes.</li>
-				<li>Expand all nodes.</li>
-				<li>Save JSON.</li>
-				<li>Copy JSON.</li>
-				<li>Copy node.</li>
-				<li>Copy node path.</li>
-				<li>Switch between formatted and raw data.</li>
+				<ul>
+					<li>Filter nodes.</li>
+					<li>Collapse all nodes.</li>
+					<li>Expand all nodes.</li>
+					<li>Save JSON.</li>
+					<li>Copy JSON.</li>
+					<li>Copy node.</li>
+					<li>Copy node path.</li>
+					<li>Switch between formatted and raw data.</li>
 
-				<li>Sticky panels.</li>
-				<li>Converting JSON.</li>
-				<li>(Shift-)Tab navigation.</li>
-				<li>Keymaps (Vim inspired).</li>
-				<li>History.</li>
-				<li>New JSON entry via file upload, fetch URL or insert JSON string.</li>
-				<li>JSON screenshot (JSON to image .jpeg).</li>
-			</ul>
+					<li>Sticky panels.</li>
+					<li>Converting JSON.</li>
+					<li>(Shift-)Tab navigation.</li>
+					<li>Keymaps (Vim inspired).</li>
+					<li>History.</li>
+					<li>New JSON entry via file upload, fetch URL or insert JSON string.</li>
+					<li>JSON screenshot (JSON to image .jpeg).</li>
+				</ul>
+			</div>
 		</Dtl>
 
-		<Dtl heading="What is JSON ?">
+		<Dtl>
+			<h3 slot="heading">What is JSON ?</h3>
 			<p>
 				<a href="https://www.json.org/">JSON</a>
 				(JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans
@@ -138,15 +149,15 @@
 				programming languages.
 			</p>
 		</Dtl>
-	</section>
+	</div>
 
 	<a id="to-top" href="#start" title="Scroll to top" class="btn icon-only outlined">
 		<Icon name="keyboard_arrow_up" />
 	</a>
-</article>
+</div>
 
 <style>
-	article {
+	.wrap {
 		/* max-width: 120ch; */
 		/* margin-inline: auto; */
 		--g: var(--btn-br, 0.5em);
@@ -180,8 +191,32 @@
 		opacity: 0.6;
 	}
 
-	h1 {
+	header {
 		margin-top: max(10vh, 4rem);
+		background: var(--bg);
+		/* color: var(--fg); */
+		color: var(--fg0);
+		padding-inline: 1rem;
+		padding-block: 1rem;
+		margin-bottom: 2rem;
+		border-radius: 0.5rem;
+		border: var(--border);
+
+		& > * {
+			color: inherit;
+		}
+	}
+	h1 {
+		margin: 0;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+	h3 {
+		color: var(--fg1);
+		font-size: 1.15rem;
+		margin: 0;
 	}
 	.tips {
 		/* margin-block: 3em; */

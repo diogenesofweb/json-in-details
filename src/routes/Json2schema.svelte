@@ -68,7 +68,7 @@
 	bind:this={dialog}
 	on:click={(ev) => ev.target === dialog && dialog.close()}
 >
-	<article>
+	<div class="sec">
 		<div class="btns fsb">
 			<Btn
 				variant="outlined"
@@ -93,11 +93,11 @@
 		>
 			{@html val}
 		</div>
-	</article>
+	</div>
 </dialog>
 
 <style>
-	article {
+	.sec {
 		padding-inline: 1em;
 		padding-block: 1em 2em;
 		border-radius: 1em;

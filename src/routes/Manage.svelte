@@ -9,7 +9,7 @@
 	import MyIcon from '$utils/MyIcon.svelte';
 </script>
 
-<section>
+<div class="wrap">
 	<div class="fsb gg">
 		<div class="fsb gg">
 			<NewEntry />
@@ -32,10 +32,10 @@
 			<!-- <Json2schema /> -->
 		</div>
 	</div>
-</section>
+</div>
 
 <style>
-	section {
+	.wrap {
 		padding-bottom: var(--g);
 	}
 

@@ -34,7 +34,7 @@
 </script>
 
 <footer class="alpha">
-	<section class="top">
+	<div class="top">
 		<ul>
 			<li>
 				<a
@@ -50,24 +50,24 @@
 			<a href={PKG['homepage']} class="btn text"> Github </a>
 			<a href="https://www.npmjs.com/package/json-in-details" class="btn text"> NPM </a>
 		</div>
-	</section>
+	</div>
 
 	<!-- <section> -->
 	<!-- 	<a href={PKG['homepage']} class="btn text"> Github </a> -->
 	<!-- 	<a href="https://www.npmjs.com/package/json-in-details" class="btn text"> NPM </a> -->
 	<!-- </section> -->
 
-	<section class="projects">
-		<div class="hh">Related Projects</div>
-		<nav class="ext">
-			{#each my_projects as el}
-				<a href={el.url}>
-					<b>{el.name}</b>
-					<span>{el.title}</span>
-				</a>
-			{/each}
-		</nav>
-	</section>
+	<!-- <div class="projects"> -->
+	<!-- 	<div class="hh">Related Projects</div> -->
+	<!-- 	<nav class="ext"> -->
+	<!-- 		{#each my_projects as el} -->
+	<!-- 			<a href={el.url}> -->
+	<!-- 				<b>{el.name}</b> -->
+	<!-- 				<span>{el.title}</span> -->
+	<!-- 			</a> -->
+	<!-- 		{/each} -->
+	<!-- 	</nav> -->
+	<!-- </div> -->
 </footer>
 
 <style>
@@ -76,11 +76,12 @@
 		padding-inline: var(--sx-m);
 		border-top: 3px double var(--fl0);
 		background: var(--bg0);
+
+		& > * {
+			padding-block: 2rem;
+		}
 	}
 
-	section {
-		padding-block: 2rem;
-	}
 	.top {
 		display: flex;
 		flex-wrap: wrap;

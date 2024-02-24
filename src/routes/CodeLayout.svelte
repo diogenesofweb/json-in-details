@@ -50,7 +50,7 @@
 	}
 </script>
 
-<section>
+<div class="wrap">
 	<div class="btns fsb">
 		<Btn text={btn_text} variant="outlined" on:click={on_copy_all} />
 		<!-- <Btn accent="danger" text="close" on:click={() => dialog.close()} /> -->
@@ -69,10 +69,10 @@
 			<BtnIcon title="copy" variant="text" iconName="content_copy" on:click={on_copy_block} />
 		</code>
 	{/each}
-</section>
+</div>
 
 <style>
-	section {
+	.wrap {
 		padding-inline: 1em;
 		padding-block: 1em 2em;
 		border-radius: 1em;

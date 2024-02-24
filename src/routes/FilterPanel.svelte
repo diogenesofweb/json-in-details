@@ -52,7 +52,7 @@
 	}
 </script>
 
-<section class="base panel" class:sticky={storage.sticky.value === 1}>
+<div class="base panel" class:sticky={storage.sticky.value === 1}>
 	<div class="form v2 alpha">
 		<label class="field">
 			<input
@@ -86,12 +86,9 @@
 			<MyIcon name="file_save" />
 		</Btn>
 	</div>
-</section>
+</div>
 
 <style>
-	/* section { */
-	/* } */
-
 	label,
 	.form {
 		border: none;

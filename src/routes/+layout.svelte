@@ -18,9 +18,9 @@
 		<div id="view">
 			<AppHeader />
 
-			<div id="main">
+			<main id="main">
 				<slot />
-			</div>
+			</main>
 
 			<a id="ua" title="Support Ukraine" href="https://war.ukraine.ua/support-ukraine/" />
 		</div>

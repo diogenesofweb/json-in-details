@@ -156,7 +156,7 @@
 	{#if is_loading}
 		<span class="loader alpha" />
 	{:else}
-		<article class="alpha">
+		<div class="alpha new">
 			<div class="btns">
 				<BtnIcon
 					title="close"
@@ -206,12 +206,12 @@
 					<Btn type="submit" text="submit" />
 				{/if}
 			</form>
-		</article>
+		</div>
 	{/if}
 </dialog>
 
 <style>
-	article {
+	.new {
 		background: var(--bg);
 		padding-inline: var(--sx-m);
 		padding-block: 1ch var(--sy-l);

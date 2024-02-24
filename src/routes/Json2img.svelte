@@ -68,7 +68,7 @@
 	on:click={(ev) => ev.target === dialog && dialog.close()}
 >
 	{#if img_src}
-		<article>
+		<div class="wrap">
 			<div class="btns fsb">
 				<Btn variant="outlined" title="Download the screenshot" on:click={on_download}>
 					<MyIcon name="file_save" />
@@ -85,12 +85,12 @@
 			</div>
 
 			<img src={img_src} alt="screenshot" />
-		</article>
+		</div>
 	{/if}
 </dialog>
 
 <style>
-	article {
+	.wrap {
 		padding-inline: 0.5em;
 		padding-block: 1em;
 	}

@@ -59,7 +59,7 @@
 	{#if is_loading}
 		<span class="loader" />
 	{:else}
-		<section>
+		<div class="sec">
 			<div class="btns">
 				<!-- <Btn accent="danger" text="close" on:click={() => dialog.close()} /> -->
 				<BtnIcon
@@ -103,12 +103,12 @@
 					<p>no entries yet</p>
 				{/each}
 			</ul>
-		</section>
+		</div>
 	{/if}
 </dialog>
 
 <style>
-	section {
+	.sec {
 		padding-inline: 1em;
 		padding-block: 0 2em;
 		border-radius: 1em;

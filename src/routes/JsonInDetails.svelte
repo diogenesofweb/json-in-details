@@ -92,5 +92,6 @@
 <style>
 	code {
 		display: block;
+		background: var(--bg2);
 	}
 </style>
