@@ -5,7 +5,7 @@
 	import { onDestroy } from 'svelte';
 	import { storage } from '$utils/local_storage';
 	import MyIcon from '$utils/MyIcon.svelte';
-	const { collapse, expand, filter } = init();
+	const { collapse, expand, filter } = init('#jid');
 
 	let text = '';
 	const unsub = my_json.subscribe(() => (text = ''));
@@ -62,7 +62,7 @@
 				bind:value={text}
 				on:input={(ev) => {
 					const str = ev.currentTarget.value;
-					// console.log({ str });
+					console.log({ str });
 					filter(str);
 				}}
 			/>

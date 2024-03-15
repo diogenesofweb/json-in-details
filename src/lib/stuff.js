@@ -48,6 +48,7 @@ export function filter_by(selector, str) {
 		if (is_filtered) {
 			clear_filter(selector);
 			is_filtered = false;
+			// console.log('reset')
 		}
 		return;
 	}
@@ -92,16 +93,22 @@ function filter_block(elem, regex) {
  * @param {string} selector
  */
 function clear_filter(selector) {
-	document
-		.querySelector(selector)
-		?.querySelectorAll(`.${hc.block} > :where(div, details)`)
-		.forEach((el) => {
-			// console.log(el.tagName);
-			// console.log(el.style.display);
-			if (el.style.display === 'none') {
-				el.style.display = '';
-			}
-		});
+	// console.log({selector})
+	const container = document.querySelector(selector);
+	// console.log({ container });
+
+	if (!container) {
+		throw new Error('container missing');
+	}
+	const list = container?.querySelectorAll(`.${hc.block} > :where(div, details)`);
+	// console.log(list);
+	list.forEach((el) => {
+		// console.log(el.tagName);
+		// console.log(el.style.display);
+		if (el.style.display === 'none') {
+			el.style.display = '';
+		}
+	});
 }
 // FILTER
 

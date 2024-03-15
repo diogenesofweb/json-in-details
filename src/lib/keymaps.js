@@ -20,7 +20,7 @@ export function handle_keymaps(ev) {
     return;
   }
 
-  ev.preventDefault();
+  // ev.preventDefault();
 
   // console.log(ev);
   const el = ev.target;
