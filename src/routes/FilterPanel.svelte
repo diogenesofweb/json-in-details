@@ -58,7 +58,7 @@
 			<input
 				id="filter"
 				type="text"
-				placeholder="filter"
+				placeholder="Filter {storage.is_regex.value ? 'with RegExp' : ''}"
 				bind:value={text}
 				on:input={(ev) => {
 					const str = ev.currentTarget.value;

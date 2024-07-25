@@ -81,7 +81,9 @@ export function filter_by(selector, str, is_regex = false) {
  * @param {RegExp} regex
  */
 function filter_block(elem, regex) {
-	for (const child of elem.children) {
+	for (let i = 0; i < elem.children.length; i++) {
+		const child = elem.children[i];
+
 		if (!(child instanceof HTMLElement)) return;
 
 		// console.log(child);
