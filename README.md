@@ -18,7 +18,7 @@
 ### Plus
 
 - Foldable nodes
-- Filterable nodes
+- Filterable nodes (text or RegExp)
 - Display path on focus/hover
 - Focusable nodes
 - (Shift)-Tab navigation

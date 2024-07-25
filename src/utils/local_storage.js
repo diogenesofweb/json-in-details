@@ -14,7 +14,9 @@ export const storage = {
 
 	clickable_links: setupStorage('clickable_links', 0),
 	escape_HTML: setupStorage('escape_HTML', true),
-	show_newline_char: setupStorage('show_newline_char', false)
+	show_newline_char: setupStorage('show_newline_char', false),
+
+	is_regex: setupStorage('is_regex', false)
 };
 
 /**

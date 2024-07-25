@@ -129,6 +129,18 @@
 					}}
 				/>
 			</BoxFieldEntry>
+
+			<BoxFieldEntry label="Filter with RegExp">
+				<input
+					type="checkbox"
+					checked={storage.is_regex.value}
+					on:change={(ev) => {
+						// @ts-ignore
+						const v = ev.target.checked;
+						storage.is_regex.set(v);
+					}}
+				/>
+			</BoxFieldEntry>
 		</BoxField>
 	</form>
 </dialog>

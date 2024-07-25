@@ -62,8 +62,8 @@
 				bind:value={text}
 				on:input={(ev) => {
 					const str = ev.currentTarget.value;
-					console.log({ str });
-					filter(str);
+					console.log({ str, rg: storage.is_regex.value });
+					filter(str, storage.is_regex.value);
 				}}
 			/>
 		</label>

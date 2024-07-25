@@ -12,7 +12,7 @@ export default function jid(selector = DS) {
 	return {
 		collapse: () => collapse_all(selector),
 		expand: () => expand_all(selector),
-		filter: (/** @type {string} */ str) => filter_by(selector, str)
+		filter: (/** @type {string} */ str, is_regex = false) => filter_by(selector, str, is_regex)
 	};
 }
 

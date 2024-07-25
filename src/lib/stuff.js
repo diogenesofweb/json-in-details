@@ -37,13 +37,27 @@ function escapeRegExp(string) {
 	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
+// https://stackoverflow.com/questions/874709/converting-user-input-string-to-regular-expression
+function stringToRegex(str) {
+	const match = str.match(/^([\/~@;%#'])(.*?)\1([gimsuy]*)$/);
+	return match
+		? new RegExp(
+				match[2],
+				match[3]
+					.split('')
+					.filter((char, pos, flagArr) => flagArr.indexOf(char) === pos)
+					.join('')
+			)
+		: new RegExp(str);
+}
+
 let is_filtered = false;
 
 /**
  * @param {string} str
  * @param {string} selector
  */
-export function filter_by(selector, str) {
+export function filter_by(selector, str, is_regex = false) {
 	if (str.length < 2) {
 		if (is_filtered) {
 			clear_filter(selector);
@@ -56,7 +70,8 @@ export function filter_by(selector, str) {
 	const el = document.querySelector(`${selector} > details > .${hc.block}`);
 	if (!el) return;
 
-	const regex = new RegExp(escapeRegExp(str), 'i');
+	const regex = is_regex ? stringToRegex(str) : new RegExp(escapeRegExp(str), 'i');
+
 	filter_block(el, regex);
 	is_filtered = true;
 }
