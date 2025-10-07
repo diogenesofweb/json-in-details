@@ -2,8 +2,7 @@
 
 ## Online:
 
-[Web App](https://json-viewer.delphic.top)
-| [Chrome Extension](https://chrome.google.com/webstore/detail/functional-json-viewer/cokkmplppnaigoodkkjopoblfaelibab)
+[Chrome Extension](https://chrome.google.com/webstore/detail/functional-json-viewer/cokkmplppnaigoodkkjopoblfaelibab)
 
 ![sceeenshot](./Screenshot.png)
 
